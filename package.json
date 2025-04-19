@@ -25,7 +25,6 @@
     "@mantine/hooks": "^7.14.3",
     "@node-rs/argon2": "^2.0.2",
     "@prisma/adapter-pg": "^6.0.1",
-    "@prisma/client": "^6.0.1",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
@@ -83,6 +82,7 @@
     "@eslint/compat": "^1.2.4",
     "@eslint/js": "^9.16.0",
     "@nekochan0122/config": "^1.14.0",
+    "@prisma/client": "^6.6.0",
     "@stylistic/eslint-plugin": "^2.11.0",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
@@ -109,7 +109,7 @@
     "faker": "npm:@faker-js/faker@^9.3.0",
     "globals": "^15.13.0",
     "postcss": "^8.4.49",
-    "prisma": "^6.0.1",
+    "prisma": "^6.6.0",
     "rimraf": "^6.0.1",
     "tailwindcss": "3.4.16",
     "tailwindcss-plugin-animate": "npm:tailwindcss-animate@^1.0.7",
@@ -121,5 +121,6 @@
   "overrides": {
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc"
-  }
+  },
+  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
 }

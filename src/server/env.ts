@@ -47,7 +47,7 @@ function parseEnv() {
   logger.info(`Environment variables parsed successfully (${total} variables)`)
 }
 
-function createEnvSchema<Shpae extends z.ZodRawShape>(type: 'Public' | 'Private', shape: Shpae) {
+function createEnvSchema<Shape extends z.ZodRawShape>(type: 'Public' | 'Private', shape: Shape) {
   for (const key in shape) {
     if (type === 'Public' && !key.startsWith(PUBLIC_ENV_PREFIX)) {
       throw new Error(`Public environment variables must start with "${PUBLIC_ENV_PREFIX}", got "${key}"`)
