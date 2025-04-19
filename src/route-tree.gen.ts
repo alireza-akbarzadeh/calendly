@@ -11,8 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WorkflowsImport } from './routes/workflows'
 import { Route as UserImport } from './routes/user'
+import { Route as RoutingImport } from './routes/routing'
+import { Route as MeetingImport } from './routes/meeting'
+import { Route as IntegrationAppsImport } from './routes/integration-apps'
+import { Route as EventTypeImport } from './routes/event-type'
+import { Route as ContactImport } from './routes/contact'
+import { Route as AvailabilityImport } from './routes/availability'
 import { Route as AuthImport } from './routes/auth'
+import { Route as AnalyticsImport } from './routes/analytics'
+import { Route as AdminCenterImport } from './routes/admin-center'
 import { Route as AdminImport } from './routes/admin'
 import { Route as IndexImport } from './routes/index'
 import { Route as UserEmailVerificationImport } from './routes/user.email-verification'
@@ -27,15 +36,69 @@ import { Route as examplesExampleFormImport } from './routes/(examples)/example-
 
 // Create/Update Routes
 
+const WorkflowsRoute = WorkflowsImport.update({
+  id: '/workflows',
+  path: '/workflows',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const UserRoute = UserImport.update({
   id: '/user',
   path: '/user',
   getParentRoute: () => rootRoute,
 } as any)
 
+const RoutingRoute = RoutingImport.update({
+  id: '/routing',
+  path: '/routing',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MeetingRoute = MeetingImport.update({
+  id: '/meeting',
+  path: '/meeting',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IntegrationAppsRoute = IntegrationAppsImport.update({
+  id: '/integration-apps',
+  path: '/integration-apps',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const EventTypeRoute = EventTypeImport.update({
+  id: '/event-type',
+  path: '/event-type',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ContactRoute = ContactImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AvailabilityRoute = AvailabilityImport.update({
+  id: '/availability',
+  path: '/availability',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AuthRoute = AuthImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AnalyticsRoute = AnalyticsImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AdminCenterRoute = AdminCenterImport.update({
+  id: '/admin-center',
+  path: '/admin-center',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -123,6 +186,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminImport
       parentRoute: typeof rootRoute
     }
+    '/admin-center': {
+      id: '/admin-center'
+      path: '/admin-center'
+      fullPath: '/admin-center'
+      preLoaderRoute: typeof AdminCenterImport
+      parentRoute: typeof rootRoute
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsImport
+      parentRoute: typeof rootRoute
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -130,11 +207,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
+    '/availability': {
+      id: '/availability'
+      path: '/availability'
+      fullPath: '/availability'
+      preLoaderRoute: typeof AvailabilityImport
+      parentRoute: typeof rootRoute
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactImport
+      parentRoute: typeof rootRoute
+    }
+    '/event-type': {
+      id: '/event-type'
+      path: '/event-type'
+      fullPath: '/event-type'
+      preLoaderRoute: typeof EventTypeImport
+      parentRoute: typeof rootRoute
+    }
+    '/integration-apps': {
+      id: '/integration-apps'
+      path: '/integration-apps'
+      fullPath: '/integration-apps'
+      preLoaderRoute: typeof IntegrationAppsImport
+      parentRoute: typeof rootRoute
+    }
+    '/meeting': {
+      id: '/meeting'
+      path: '/meeting'
+      fullPath: '/meeting'
+      preLoaderRoute: typeof MeetingImport
+      parentRoute: typeof rootRoute
+    }
+    '/routing': {
+      id: '/routing'
+      path: '/routing'
+      fullPath: '/routing'
+      preLoaderRoute: typeof RoutingImport
+      parentRoute: typeof rootRoute
+    }
     '/user': {
       id: '/user'
       path: '/user'
       fullPath: '/user'
       preLoaderRoute: typeof UserImport
+      parentRoute: typeof rootRoute
+    }
+    '/workflows': {
+      id: '/workflows'
+      path: '/workflows'
+      fullPath: '/workflows'
+      preLoaderRoute: typeof WorkflowsImport
       parentRoute: typeof rootRoute
     }
     '/(examples)/example-form': {
@@ -248,8 +374,17 @@ const UserRouteWithChildren = UserRoute._addFileChildren(UserRouteChildren)
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin-center': typeof AdminCenterRoute
+  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
+  '/availability': typeof AvailabilityRoute
+  '/contact': typeof ContactRoute
+  '/event-type': typeof EventTypeRoute
+  '/integration-apps': typeof IntegrationAppsRoute
+  '/meeting': typeof MeetingRoute
+  '/routing': typeof RoutingRoute
   '/user': typeof UserRouteWithChildren
+  '/workflows': typeof WorkflowsRoute
   '/example-form': typeof examplesExampleFormRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/user-management': typeof AdminUserManagementRoute
@@ -264,8 +399,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin-center': typeof AdminCenterRoute
+  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
+  '/availability': typeof AvailabilityRoute
+  '/contact': typeof ContactRoute
+  '/event-type': typeof EventTypeRoute
+  '/integration-apps': typeof IntegrationAppsRoute
+  '/meeting': typeof MeetingRoute
+  '/routing': typeof RoutingRoute
   '/user': typeof UserRouteWithChildren
+  '/workflows': typeof WorkflowsRoute
   '/example-form': typeof examplesExampleFormRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/user-management': typeof AdminUserManagementRoute
@@ -281,8 +425,17 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteWithChildren
+  '/admin-center': typeof AdminCenterRoute
+  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
+  '/availability': typeof AvailabilityRoute
+  '/contact': typeof ContactRoute
+  '/event-type': typeof EventTypeRoute
+  '/integration-apps': typeof IntegrationAppsRoute
+  '/meeting': typeof MeetingRoute
+  '/routing': typeof RoutingRoute
   '/user': typeof UserRouteWithChildren
+  '/workflows': typeof WorkflowsRoute
   '/(examples)/example-form': typeof examplesExampleFormRoute
   '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/user-management': typeof AdminUserManagementRoute
@@ -299,8 +452,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
+    | '/admin-center'
+    | '/analytics'
     | '/auth'
+    | '/availability'
+    | '/contact'
+    | '/event-type'
+    | '/integration-apps'
+    | '/meeting'
+    | '/routing'
     | '/user'
+    | '/workflows'
     | '/example-form'
     | '/admin/dashboard'
     | '/admin/user-management'
@@ -314,8 +476,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/admin'
+    | '/admin-center'
+    | '/analytics'
     | '/auth'
+    | '/availability'
+    | '/contact'
+    | '/event-type'
+    | '/integration-apps'
+    | '/meeting'
+    | '/routing'
     | '/user'
+    | '/workflows'
     | '/example-form'
     | '/admin/dashboard'
     | '/admin/user-management'
@@ -329,8 +500,17 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/admin'
+    | '/admin-center'
+    | '/analytics'
     | '/auth'
+    | '/availability'
+    | '/contact'
+    | '/event-type'
+    | '/integration-apps'
+    | '/meeting'
+    | '/routing'
     | '/user'
+    | '/workflows'
     | '/(examples)/example-form'
     | '/admin/dashboard'
     | '/admin/user-management'
@@ -346,16 +526,34 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRouteWithChildren
+  AdminCenterRoute: typeof AdminCenterRoute
+  AnalyticsRoute: typeof AnalyticsRoute
   AuthRoute: typeof AuthRouteWithChildren
+  AvailabilityRoute: typeof AvailabilityRoute
+  ContactRoute: typeof ContactRoute
+  EventTypeRoute: typeof EventTypeRoute
+  IntegrationAppsRoute: typeof IntegrationAppsRoute
+  MeetingRoute: typeof MeetingRoute
+  RoutingRoute: typeof RoutingRoute
   UserRoute: typeof UserRouteWithChildren
+  WorkflowsRoute: typeof WorkflowsRoute
   examplesExampleFormRoute: typeof examplesExampleFormRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
+  AdminCenterRoute: AdminCenterRoute,
+  AnalyticsRoute: AnalyticsRoute,
   AuthRoute: AuthRouteWithChildren,
+  AvailabilityRoute: AvailabilityRoute,
+  ContactRoute: ContactRoute,
+  EventTypeRoute: EventTypeRoute,
+  IntegrationAppsRoute: IntegrationAppsRoute,
+  MeetingRoute: MeetingRoute,
+  RoutingRoute: RoutingRoute,
   UserRoute: UserRouteWithChildren,
+  WorkflowsRoute: WorkflowsRoute,
   examplesExampleFormRoute: examplesExampleFormRoute,
 }
 
@@ -371,8 +569,17 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/admin",
+        "/admin-center",
+        "/analytics",
         "/auth",
+        "/availability",
+        "/contact",
+        "/event-type",
+        "/integration-apps",
+        "/meeting",
+        "/routing",
         "/user",
+        "/workflows",
         "/(examples)/example-form"
       ]
     },
@@ -386,12 +593,36 @@ export const routeTree = rootRoute
         "/admin/user-management"
       ]
     },
+    "/admin-center": {
+      "filePath": "admin-center.tsx"
+    },
+    "/analytics": {
+      "filePath": "analytics.ts"
+    },
     "/auth": {
       "filePath": "auth.tsx",
       "children": [
         "/auth/sign-in",
         "/auth/sign-up"
       ]
+    },
+    "/availability": {
+      "filePath": "availability.tsx"
+    },
+    "/contact": {
+      "filePath": "contact.tsx"
+    },
+    "/event-type": {
+      "filePath": "event-type.tsx"
+    },
+    "/integration-apps": {
+      "filePath": "integration-apps.tsx"
+    },
+    "/meeting": {
+      "filePath": "meeting.tsx"
+    },
+    "/routing": {
+      "filePath": "routing.tsx"
     },
     "/user": {
       "filePath": "user.tsx",
@@ -401,6 +632,9 @@ export const routeTree = rootRoute
         "/user/change-password",
         "/user/email-verification"
       ]
+    },
+    "/workflows": {
+      "filePath": "workflows.tsx"
     },
     "/(examples)/example-form": {
       "filePath": "(examples)/example-form.tsx"

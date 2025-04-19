@@ -1,4 +1,4 @@
-import { LuCheck, LuChevronsUpDown, LuCommand, LuLanguages, LuLogOut, LuEllipsis, LuPalette, LuUser } from 'react-icons/lu'
+import { LuCheck, LuChevronsUpDown, LuCommand, LuEllipsis, LuLanguages, LuLogOut, LuPalette, LuUser } from 'react-icons/lu'
 import { useTranslations } from 'use-intl'
 import type { ComponentProps } from 'react'
 
@@ -45,7 +45,6 @@ function SidebarLogo() {
             </div>
             <div className='grid flex-1 text-left text-sm leading-tight'>
               <span className='truncate font-semibold'>{import.meta.env.VITE_APP_NAME}</span>
-              <span className='truncate text-xs'>By NekoChan</span>
             </div>
           </Link>
         </SidebarMenuButton>
