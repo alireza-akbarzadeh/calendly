@@ -12,7 +12,7 @@ export function SidebarNavBuilder({ navigation }: SidebarNavBuilderProps) {
   const t = useTranslations()
 
   return (
-    <SidebarMenu>
+    <SidebarMenu className='gap-5 pl-3'>
       {navigation.map((nav) => (
         <SidebarMenuItem key={nav.name}>
           <SidebarMenuButton asChild>
