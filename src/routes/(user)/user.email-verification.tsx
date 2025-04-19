@@ -8,7 +8,7 @@ import { Input } from '~/components/ui/input'
 import { authClient } from '~/libs/auth-client'
 import { useAuthedQuery } from '~/services/auth.query'
 
-export const Route = createFileRoute('/user/email-verification')({
+export const Route = createFileRoute('/(user)/user/email-verification')({
   component: EmailVerificationRoute,
 })
 
@@ -22,26 +22,29 @@ function EmailVerificationRoute() {
       email: authedQuery.data.user.email,
     },
     onSubmit: async () => {
-      await authClient.sendVerificationEmail({
-        email: authedQuery.data.user.email,
-        callbackURL: window.location.href,
-      }, {
-        onSuccess: () => {
-          toast.success(t('common.submit-success'))
+      await authClient.sendVerificationEmail(
+        {
+          email: authedQuery.data.user.email,
+          callbackURL: window.location.href,
         },
-        onError: ({ error }) => {
-          toast.error(t('common.submit-error'), {
-            description: error.message, // TODO: i18n
-          })
+        {
+          onSuccess: () => {
+            toast.success(t('common.submit-success'))
+          },
+          onError: ({ error }) => {
+            toast.error(t('common.submit-error'), {
+              description: error.message, // TODO: i18n
+            })
+          },
         },
-      })
+      )
     },
   })
 
   return (
     <form.Root>
       <form.Field
-        name='email'
+        name="email"
         render={(field) => (
           <field.Container label={t('auth.email')}>
             <Input disabled />

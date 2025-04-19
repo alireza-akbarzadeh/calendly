@@ -10,12 +10,12 @@ import { tKey } from '~/libs/i18n'
 import { useAuthedQuery } from '~/services/auth.query'
 import { emailSchema } from '~/services/auth.schema'
 
-export const Route = createFileRoute('/user/change-email')({
+export const Route = createFileRoute('/(user)/user/change-email')({
   component: ChangeEmailRoute,
 })
 
-const changeEmailSchema = (t = tKey) => z
-  .object({
+const changeEmailSchema = (t = tKey) =>
+  z.object({
     newEmail: emailSchema(t),
   })
 
@@ -28,7 +28,8 @@ function ChangeEmailRoute() {
     changeEmailSchema(t).refine(
       (values) => values.newEmail !== authedQuery.data.user.email,
       { path: ['newEmail'], message: t('auth.email-must-different') },
-    ), {
+    ),
+    {
       defaultValues: {
         newEmail: '',
       },
@@ -45,21 +46,20 @@ function ChangeEmailRoute() {
           },
         })
       },
-    })
+    },
+  )
 
   return (
     <form.Root>
       <form.Field
-        name='newEmail'
+        name="newEmail"
         render={(field) => (
           <field.Container label={t('auth.new-email')}>
             <Input placeholder={authedQuery.data.user.email} />
           </field.Container>
         )}
       />
-      <form.Submit>
-        {t('common.submit')}
-      </form.Submit>
+      <form.Submit>{t('common.submit')}</form.Submit>
     </form.Root>
   )
 }

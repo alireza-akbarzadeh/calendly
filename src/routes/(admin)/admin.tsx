@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 import { logger } from '~/libs/logger'
 import { useAuthQuery } from '~/services/auth.query'
 
-export const Route = createFileRoute('/admin')({
+export const Route = createFileRoute('/(admin)/admin')({
   beforeLoad: ({ context, location, preload }) => {
     if (!context.auth.isAuthenticated) {
       if (!preload) {
@@ -43,5 +43,8 @@ export const Route = createFileRoute('/admin')({
 function AdminLayout() {
   const authQuery = useAuthQuery()
 
-  return authQuery.data.isAuthenticated && authQuery.data.user.role === 'admin' ? <Outlet /> : null
+  return authQuery.data.isAuthenticated &&
+    authQuery.data.user.role === 'admin' ? (
+    <Outlet />
+  ) : null
 }

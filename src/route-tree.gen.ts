@@ -11,78 +11,29 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as WorkflowsImport } from './routes/workflows'
-import { Route as UserImport } from './routes/user'
-import { Route as RoutingImport } from './routes/routing'
-import { Route as MeetingImport } from './routes/meeting'
-import { Route as IntegrationAppsImport } from './routes/integration-apps'
-import { Route as EventTypeImport } from './routes/event-type'
-import { Route as ContactImport } from './routes/contact'
-import { Route as AvailabilityImport } from './routes/availability'
 import { Route as AuthImport } from './routes/auth'
-import { Route as AnalyticsImport } from './routes/analytics'
-import { Route as AdminCenterImport } from './routes/admin-center'
-import { Route as AdminImport } from './routes/admin'
 import { Route as IndexImport } from './routes/index'
-import { Route as UserEmailVerificationImport } from './routes/user.email-verification'
-import { Route as UserChangePasswordImport } from './routes/user.change-password'
-import { Route as UserChangeEmailImport } from './routes/user.change-email'
-import { Route as UserAccountSettingsImport } from './routes/user.account-settings'
 import { Route as AuthSignUpImport } from './routes/auth.sign-up'
 import { Route as AuthSignInImport } from './routes/auth.sign-in'
-import { Route as AdminUserManagementImport } from './routes/admin.user-management'
-import { Route as AdminDashboardImport } from './routes/admin.dashboard'
-import { Route as examplesExampleFormImport } from './routes/(examples)/example-form'
+import { Route as userUserImport } from './routes/(user)/user'
+import { Route as adminWorkflowsImport } from './routes/(admin)/workflows'
+import { Route as adminRoutingImport } from './routes/(admin)/routing'
+import { Route as adminMeetingImport } from './routes/(admin)/meeting'
+import { Route as adminIntegrationAppsImport } from './routes/(admin)/integration-apps'
+import { Route as adminEventTypeImport } from './routes/(admin)/event-type'
+import { Route as adminContactImport } from './routes/(admin)/contact'
+import { Route as adminAvailabilityImport } from './routes/(admin)/availability'
+import { Route as adminAnalyticsImport } from './routes/(admin)/analytics'
+import { Route as adminAdminCenterImport } from './routes/(admin)/admin-center'
+import { Route as adminAdminImport } from './routes/(admin)/admin'
+import { Route as userUserEmailVerificationImport } from './routes/(user)/user.email-verification'
+import { Route as userUserChangePasswordImport } from './routes/(user)/user.change-password'
+import { Route as userUserChangeEmailImport } from './routes/(user)/user.change-email'
+import { Route as userUserAccountSettingsImport } from './routes/(user)/user.account-settings'
+import { Route as adminAdminUserManagementImport } from './routes/(admin)/admin.user-management'
+import { Route as adminAdminDashboardImport } from './routes/(admin)/admin.dashboard'
 
 // Create/Update Routes
-
-const WorkflowsRoute = WorkflowsImport.update({
-  id: '/workflows',
-  path: '/workflows',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const UserRoute = UserImport.update({
-  id: '/user',
-  path: '/user',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const RoutingRoute = RoutingImport.update({
-  id: '/routing',
-  path: '/routing',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const MeetingRoute = MeetingImport.update({
-  id: '/meeting',
-  path: '/meeting',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const IntegrationAppsRoute = IntegrationAppsImport.update({
-  id: '/integration-apps',
-  path: '/integration-apps',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const EventTypeRoute = EventTypeImport.update({
-  id: '/event-type',
-  path: '/event-type',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ContactRoute = ContactImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AvailabilityRoute = AvailabilityImport.update({
-  id: '/availability',
-  path: '/availability',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const AuthRoute = AuthImport.update({
   id: '/auth',
@@ -90,52 +41,10 @@ const AuthRoute = AuthImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AnalyticsRoute = AnalyticsImport.update({
-  id: '/analytics',
-  path: '/analytics',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminCenterRoute = AdminCenterImport.update({
-  id: '/admin-center',
-  path: '/admin-center',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AdminRoute = AdminImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
-} as any)
-
-const UserEmailVerificationRoute = UserEmailVerificationImport.update({
-  id: '/email-verification',
-  path: '/email-verification',
-  getParentRoute: () => UserRoute,
-} as any)
-
-const UserChangePasswordRoute = UserChangePasswordImport.update({
-  id: '/change-password',
-  path: '/change-password',
-  getParentRoute: () => UserRoute,
-} as any)
-
-const UserChangeEmailRoute = UserChangeEmailImport.update({
-  id: '/change-email',
-  path: '/change-email',
-  getParentRoute: () => UserRoute,
-} as any)
-
-const UserAccountSettingsRoute = UserAccountSettingsImport.update({
-  id: '/account-settings',
-  path: '/account-settings',
-  getParentRoute: () => UserRoute,
 } as any)
 
 const AuthSignUpRoute = AuthSignUpImport.update({
@@ -150,22 +59,106 @@ const AuthSignInRoute = AuthSignInImport.update({
   getParentRoute: () => AuthRoute,
 } as any)
 
-const AdminUserManagementRoute = AdminUserManagementImport.update({
+const userUserRoute = userUserImport.update({
+  id: '/(user)/user',
+  path: '/user',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminWorkflowsRoute = adminWorkflowsImport.update({
+  id: '/(admin)/workflows',
+  path: '/workflows',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminRoutingRoute = adminRoutingImport.update({
+  id: '/(admin)/routing',
+  path: '/routing',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminMeetingRoute = adminMeetingImport.update({
+  id: '/(admin)/meeting',
+  path: '/meeting',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminIntegrationAppsRoute = adminIntegrationAppsImport.update({
+  id: '/(admin)/integration-apps',
+  path: '/integration-apps',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminEventTypeRoute = adminEventTypeImport.update({
+  id: '/(admin)/event-type',
+  path: '/event-type',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminContactRoute = adminContactImport.update({
+  id: '/(admin)/contact',
+  path: '/contact',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminAvailabilityRoute = adminAvailabilityImport.update({
+  id: '/(admin)/availability',
+  path: '/availability',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminAnalyticsRoute = adminAnalyticsImport.update({
+  id: '/(admin)/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminAdminCenterRoute = adminAdminCenterImport.update({
+  id: '/(admin)/admin-center',
+  path: '/admin-center',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const adminAdminRoute = adminAdminImport.update({
+  id: '/(admin)/admin',
+  path: '/admin',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const userUserEmailVerificationRoute = userUserEmailVerificationImport.update({
+  id: '/email-verification',
+  path: '/email-verification',
+  getParentRoute: () => userUserRoute,
+} as any)
+
+const userUserChangePasswordRoute = userUserChangePasswordImport.update({
+  id: '/change-password',
+  path: '/change-password',
+  getParentRoute: () => userUserRoute,
+} as any)
+
+const userUserChangeEmailRoute = userUserChangeEmailImport.update({
+  id: '/change-email',
+  path: '/change-email',
+  getParentRoute: () => userUserRoute,
+} as any)
+
+const userUserAccountSettingsRoute = userUserAccountSettingsImport.update({
+  id: '/account-settings',
+  path: '/account-settings',
+  getParentRoute: () => userUserRoute,
+} as any)
+
+const adminAdminUserManagementRoute = adminAdminUserManagementImport.update({
   id: '/user-management',
   path: '/user-management',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => adminAdminRoute,
 } as any)
 
-const AdminDashboardRoute = AdminDashboardImport.update({
+const adminAdminDashboardRoute = adminAdminDashboardImport.update({
   id: '/dashboard',
   path: '/dashboard',
-  getParentRoute: () => AdminRoute,
-} as any)
-
-const examplesExampleFormRoute = examplesExampleFormImport.update({
-  id: '/(examples)/example-form',
-  path: '/example-form',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => adminAdminRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -179,27 +172,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminImport
-      parentRoute: typeof rootRoute
-    }
-    '/admin-center': {
-      id: '/admin-center'
-      path: '/admin-center'
-      fullPath: '/admin-center'
-      preLoaderRoute: typeof AdminCenterImport
-      parentRoute: typeof rootRoute
-    }
-    '/analytics': {
-      id: '/analytics'
-      path: '/analytics'
-      fullPath: '/analytics'
-      preLoaderRoute: typeof AnalyticsImport
-      parentRoute: typeof rootRoute
-    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -207,82 +179,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/availability': {
-      id: '/availability'
+    '/(admin)/admin': {
+      id: '/(admin)/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof adminAdminImport
+      parentRoute: typeof rootRoute
+    }
+    '/(admin)/admin-center': {
+      id: '/(admin)/admin-center'
+      path: '/admin-center'
+      fullPath: '/admin-center'
+      preLoaderRoute: typeof adminAdminCenterImport
+      parentRoute: typeof rootRoute
+    }
+    '/(admin)/analytics': {
+      id: '/(admin)/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof adminAnalyticsImport
+      parentRoute: typeof rootRoute
+    }
+    '/(admin)/availability': {
+      id: '/(admin)/availability'
       path: '/availability'
       fullPath: '/availability'
-      preLoaderRoute: typeof AvailabilityImport
+      preLoaderRoute: typeof adminAvailabilityImport
       parentRoute: typeof rootRoute
     }
-    '/contact': {
-      id: '/contact'
+    '/(admin)/contact': {
+      id: '/(admin)/contact'
       path: '/contact'
       fullPath: '/contact'
-      preLoaderRoute: typeof ContactImport
+      preLoaderRoute: typeof adminContactImport
       parentRoute: typeof rootRoute
     }
-    '/event-type': {
-      id: '/event-type'
+    '/(admin)/event-type': {
+      id: '/(admin)/event-type'
       path: '/event-type'
       fullPath: '/event-type'
-      preLoaderRoute: typeof EventTypeImport
+      preLoaderRoute: typeof adminEventTypeImport
       parentRoute: typeof rootRoute
     }
-    '/integration-apps': {
-      id: '/integration-apps'
+    '/(admin)/integration-apps': {
+      id: '/(admin)/integration-apps'
       path: '/integration-apps'
       fullPath: '/integration-apps'
-      preLoaderRoute: typeof IntegrationAppsImport
+      preLoaderRoute: typeof adminIntegrationAppsImport
       parentRoute: typeof rootRoute
     }
-    '/meeting': {
-      id: '/meeting'
+    '/(admin)/meeting': {
+      id: '/(admin)/meeting'
       path: '/meeting'
       fullPath: '/meeting'
-      preLoaderRoute: typeof MeetingImport
+      preLoaderRoute: typeof adminMeetingImport
       parentRoute: typeof rootRoute
     }
-    '/routing': {
-      id: '/routing'
+    '/(admin)/routing': {
+      id: '/(admin)/routing'
       path: '/routing'
       fullPath: '/routing'
-      preLoaderRoute: typeof RoutingImport
+      preLoaderRoute: typeof adminRoutingImport
       parentRoute: typeof rootRoute
     }
-    '/user': {
-      id: '/user'
-      path: '/user'
-      fullPath: '/user'
-      preLoaderRoute: typeof UserImport
-      parentRoute: typeof rootRoute
-    }
-    '/workflows': {
-      id: '/workflows'
+    '/(admin)/workflows': {
+      id: '/(admin)/workflows'
       path: '/workflows'
       fullPath: '/workflows'
-      preLoaderRoute: typeof WorkflowsImport
+      preLoaderRoute: typeof adminWorkflowsImport
       parentRoute: typeof rootRoute
     }
-    '/(examples)/example-form': {
-      id: '/(examples)/example-form'
-      path: '/example-form'
-      fullPath: '/example-form'
-      preLoaderRoute: typeof examplesExampleFormImport
+    '/(user)/user': {
+      id: '/(user)/user'
+      path: '/user'
+      fullPath: '/user'
+      preLoaderRoute: typeof userUserImport
       parentRoute: typeof rootRoute
-    }
-    '/admin/dashboard': {
-      id: '/admin/dashboard'
-      path: '/dashboard'
-      fullPath: '/admin/dashboard'
-      preLoaderRoute: typeof AdminDashboardImport
-      parentRoute: typeof AdminImport
-    }
-    '/admin/user-management': {
-      id: '/admin/user-management'
-      path: '/user-management'
-      fullPath: '/admin/user-management'
-      preLoaderRoute: typeof AdminUserManagementImport
-      parentRoute: typeof AdminImport
     }
     '/auth/sign-in': {
       id: '/auth/sign-in'
@@ -298,50 +270,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSignUpImport
       parentRoute: typeof AuthImport
     }
-    '/user/account-settings': {
-      id: '/user/account-settings'
+    '/(admin)/admin/dashboard': {
+      id: '/(admin)/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof adminAdminDashboardImport
+      parentRoute: typeof adminAdminImport
+    }
+    '/(admin)/admin/user-management': {
+      id: '/(admin)/admin/user-management'
+      path: '/user-management'
+      fullPath: '/admin/user-management'
+      preLoaderRoute: typeof adminAdminUserManagementImport
+      parentRoute: typeof adminAdminImport
+    }
+    '/(user)/user/account-settings': {
+      id: '/(user)/user/account-settings'
       path: '/account-settings'
       fullPath: '/user/account-settings'
-      preLoaderRoute: typeof UserAccountSettingsImport
-      parentRoute: typeof UserImport
+      preLoaderRoute: typeof userUserAccountSettingsImport
+      parentRoute: typeof userUserImport
     }
-    '/user/change-email': {
-      id: '/user/change-email'
+    '/(user)/user/change-email': {
+      id: '/(user)/user/change-email'
       path: '/change-email'
       fullPath: '/user/change-email'
-      preLoaderRoute: typeof UserChangeEmailImport
-      parentRoute: typeof UserImport
+      preLoaderRoute: typeof userUserChangeEmailImport
+      parentRoute: typeof userUserImport
     }
-    '/user/change-password': {
-      id: '/user/change-password'
+    '/(user)/user/change-password': {
+      id: '/(user)/user/change-password'
       path: '/change-password'
       fullPath: '/user/change-password'
-      preLoaderRoute: typeof UserChangePasswordImport
-      parentRoute: typeof UserImport
+      preLoaderRoute: typeof userUserChangePasswordImport
+      parentRoute: typeof userUserImport
     }
-    '/user/email-verification': {
-      id: '/user/email-verification'
+    '/(user)/user/email-verification': {
+      id: '/(user)/user/email-verification'
       path: '/email-verification'
       fullPath: '/user/email-verification'
-      preLoaderRoute: typeof UserEmailVerificationImport
-      parentRoute: typeof UserImport
+      preLoaderRoute: typeof userUserEmailVerificationImport
+      parentRoute: typeof userUserImport
     }
   }
 }
 
 // Create and export the route tree
-
-interface AdminRouteChildren {
-  AdminDashboardRoute: typeof AdminDashboardRoute
-  AdminUserManagementRoute: typeof AdminUserManagementRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminDashboardRoute: AdminDashboardRoute,
-  AdminUserManagementRoute: AdminUserManagementRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface AuthRouteChildren {
   AuthSignInRoute: typeof AuthSignInRoute
@@ -355,119 +329,131 @@ const AuthRouteChildren: AuthRouteChildren = {
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
-interface UserRouteChildren {
-  UserAccountSettingsRoute: typeof UserAccountSettingsRoute
-  UserChangeEmailRoute: typeof UserChangeEmailRoute
-  UserChangePasswordRoute: typeof UserChangePasswordRoute
-  UserEmailVerificationRoute: typeof UserEmailVerificationRoute
+interface adminAdminRouteChildren {
+  adminAdminDashboardRoute: typeof adminAdminDashboardRoute
+  adminAdminUserManagementRoute: typeof adminAdminUserManagementRoute
 }
 
-const UserRouteChildren: UserRouteChildren = {
-  UserAccountSettingsRoute: UserAccountSettingsRoute,
-  UserChangeEmailRoute: UserChangeEmailRoute,
-  UserChangePasswordRoute: UserChangePasswordRoute,
-  UserEmailVerificationRoute: UserEmailVerificationRoute,
+const adminAdminRouteChildren: adminAdminRouteChildren = {
+  adminAdminDashboardRoute: adminAdminDashboardRoute,
+  adminAdminUserManagementRoute: adminAdminUserManagementRoute,
 }
 
-const UserRouteWithChildren = UserRoute._addFileChildren(UserRouteChildren)
+const adminAdminRouteWithChildren = adminAdminRoute._addFileChildren(
+  adminAdminRouteChildren,
+)
+
+interface userUserRouteChildren {
+  userUserAccountSettingsRoute: typeof userUserAccountSettingsRoute
+  userUserChangeEmailRoute: typeof userUserChangeEmailRoute
+  userUserChangePasswordRoute: typeof userUserChangePasswordRoute
+  userUserEmailVerificationRoute: typeof userUserEmailVerificationRoute
+}
+
+const userUserRouteChildren: userUserRouteChildren = {
+  userUserAccountSettingsRoute: userUserAccountSettingsRoute,
+  userUserChangeEmailRoute: userUserChangeEmailRoute,
+  userUserChangePasswordRoute: userUserChangePasswordRoute,
+  userUserEmailVerificationRoute: userUserEmailVerificationRoute,
+}
+
+const userUserRouteWithChildren = userUserRoute._addFileChildren(
+  userUserRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin-center': typeof AdminCenterRoute
-  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
-  '/availability': typeof AvailabilityRoute
-  '/contact': typeof ContactRoute
-  '/event-type': typeof EventTypeRoute
-  '/integration-apps': typeof IntegrationAppsRoute
-  '/meeting': typeof MeetingRoute
-  '/routing': typeof RoutingRoute
-  '/user': typeof UserRouteWithChildren
-  '/workflows': typeof WorkflowsRoute
-  '/example-form': typeof examplesExampleFormRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/user-management': typeof AdminUserManagementRoute
+  '/admin': typeof adminAdminRouteWithChildren
+  '/admin-center': typeof adminAdminCenterRoute
+  '/analytics': typeof adminAnalyticsRoute
+  '/availability': typeof adminAvailabilityRoute
+  '/contact': typeof adminContactRoute
+  '/event-type': typeof adminEventTypeRoute
+  '/integration-apps': typeof adminIntegrationAppsRoute
+  '/meeting': typeof adminMeetingRoute
+  '/routing': typeof adminRoutingRoute
+  '/workflows': typeof adminWorkflowsRoute
+  '/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
-  '/user/account-settings': typeof UserAccountSettingsRoute
-  '/user/change-email': typeof UserChangeEmailRoute
-  '/user/change-password': typeof UserChangePasswordRoute
-  '/user/email-verification': typeof UserEmailVerificationRoute
+  '/admin/dashboard': typeof adminAdminDashboardRoute
+  '/admin/user-management': typeof adminAdminUserManagementRoute
+  '/user/account-settings': typeof userUserAccountSettingsRoute
+  '/user/change-email': typeof userUserChangeEmailRoute
+  '/user/change-password': typeof userUserChangePasswordRoute
+  '/user/email-verification': typeof userUserEmailVerificationRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin-center': typeof AdminCenterRoute
-  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
-  '/availability': typeof AvailabilityRoute
-  '/contact': typeof ContactRoute
-  '/event-type': typeof EventTypeRoute
-  '/integration-apps': typeof IntegrationAppsRoute
-  '/meeting': typeof MeetingRoute
-  '/routing': typeof RoutingRoute
-  '/user': typeof UserRouteWithChildren
-  '/workflows': typeof WorkflowsRoute
-  '/example-form': typeof examplesExampleFormRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/user-management': typeof AdminUserManagementRoute
+  '/admin': typeof adminAdminRouteWithChildren
+  '/admin-center': typeof adminAdminCenterRoute
+  '/analytics': typeof adminAnalyticsRoute
+  '/availability': typeof adminAvailabilityRoute
+  '/contact': typeof adminContactRoute
+  '/event-type': typeof adminEventTypeRoute
+  '/integration-apps': typeof adminIntegrationAppsRoute
+  '/meeting': typeof adminMeetingRoute
+  '/routing': typeof adminRoutingRoute
+  '/workflows': typeof adminWorkflowsRoute
+  '/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
-  '/user/account-settings': typeof UserAccountSettingsRoute
-  '/user/change-email': typeof UserChangeEmailRoute
-  '/user/change-password': typeof UserChangePasswordRoute
-  '/user/email-verification': typeof UserEmailVerificationRoute
+  '/admin/dashboard': typeof adminAdminDashboardRoute
+  '/admin/user-management': typeof adminAdminUserManagementRoute
+  '/user/account-settings': typeof userUserAccountSettingsRoute
+  '/user/change-email': typeof userUserChangeEmailRoute
+  '/user/change-password': typeof userUserChangePasswordRoute
+  '/user/email-verification': typeof userUserEmailVerificationRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin-center': typeof AdminCenterRoute
-  '/analytics': typeof AnalyticsRoute
   '/auth': typeof AuthRouteWithChildren
-  '/availability': typeof AvailabilityRoute
-  '/contact': typeof ContactRoute
-  '/event-type': typeof EventTypeRoute
-  '/integration-apps': typeof IntegrationAppsRoute
-  '/meeting': typeof MeetingRoute
-  '/routing': typeof RoutingRoute
-  '/user': typeof UserRouteWithChildren
-  '/workflows': typeof WorkflowsRoute
-  '/(examples)/example-form': typeof examplesExampleFormRoute
-  '/admin/dashboard': typeof AdminDashboardRoute
-  '/admin/user-management': typeof AdminUserManagementRoute
+  '/(admin)/admin': typeof adminAdminRouteWithChildren
+  '/(admin)/admin-center': typeof adminAdminCenterRoute
+  '/(admin)/analytics': typeof adminAnalyticsRoute
+  '/(admin)/availability': typeof adminAvailabilityRoute
+  '/(admin)/contact': typeof adminContactRoute
+  '/(admin)/event-type': typeof adminEventTypeRoute
+  '/(admin)/integration-apps': typeof adminIntegrationAppsRoute
+  '/(admin)/meeting': typeof adminMeetingRoute
+  '/(admin)/routing': typeof adminRoutingRoute
+  '/(admin)/workflows': typeof adminWorkflowsRoute
+  '/(user)/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
-  '/user/account-settings': typeof UserAccountSettingsRoute
-  '/user/change-email': typeof UserChangeEmailRoute
-  '/user/change-password': typeof UserChangePasswordRoute
-  '/user/email-verification': typeof UserEmailVerificationRoute
+  '/(admin)/admin/dashboard': typeof adminAdminDashboardRoute
+  '/(admin)/admin/user-management': typeof adminAdminUserManagementRoute
+  '/(user)/user/account-settings': typeof userUserAccountSettingsRoute
+  '/(user)/user/change-email': typeof userUserChangeEmailRoute
+  '/(user)/user/change-password': typeof userUserChangePasswordRoute
+  '/(user)/user/email-verification': typeof userUserEmailVerificationRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/admin'
     | '/admin-center'
     | '/analytics'
-    | '/auth'
     | '/availability'
     | '/contact'
     | '/event-type'
     | '/integration-apps'
     | '/meeting'
     | '/routing'
-    | '/user'
     | '/workflows'
-    | '/example-form'
-    | '/admin/dashboard'
-    | '/admin/user-management'
+    | '/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
+    | '/admin/dashboard'
+    | '/admin/user-management'
     | '/user/account-settings'
     | '/user/change-email'
     | '/user/change-password'
@@ -475,23 +461,22 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/admin'
     | '/admin-center'
     | '/analytics'
-    | '/auth'
     | '/availability'
     | '/contact'
     | '/event-type'
     | '/integration-apps'
     | '/meeting'
     | '/routing'
-    | '/user'
     | '/workflows'
-    | '/example-form'
-    | '/admin/dashboard'
-    | '/admin/user-management'
+    | '/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
+    | '/admin/dashboard'
+    | '/admin/user-management'
     | '/user/account-settings'
     | '/user/change-email'
     | '/user/change-password'
@@ -499,62 +484,59 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/admin'
-    | '/admin-center'
-    | '/analytics'
     | '/auth'
-    | '/availability'
-    | '/contact'
-    | '/event-type'
-    | '/integration-apps'
-    | '/meeting'
-    | '/routing'
-    | '/user'
-    | '/workflows'
-    | '/(examples)/example-form'
-    | '/admin/dashboard'
-    | '/admin/user-management'
+    | '/(admin)/admin'
+    | '/(admin)/admin-center'
+    | '/(admin)/analytics'
+    | '/(admin)/availability'
+    | '/(admin)/contact'
+    | '/(admin)/event-type'
+    | '/(admin)/integration-apps'
+    | '/(admin)/meeting'
+    | '/(admin)/routing'
+    | '/(admin)/workflows'
+    | '/(user)/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
-    | '/user/account-settings'
-    | '/user/change-email'
-    | '/user/change-password'
-    | '/user/email-verification'
+    | '/(admin)/admin/dashboard'
+    | '/(admin)/admin/user-management'
+    | '/(user)/user/account-settings'
+    | '/(user)/user/change-email'
+    | '/(user)/user/change-password'
+    | '/(user)/user/email-verification'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRouteWithChildren
-  AdminCenterRoute: typeof AdminCenterRoute
-  AnalyticsRoute: typeof AnalyticsRoute
   AuthRoute: typeof AuthRouteWithChildren
-  AvailabilityRoute: typeof AvailabilityRoute
-  ContactRoute: typeof ContactRoute
-  EventTypeRoute: typeof EventTypeRoute
-  IntegrationAppsRoute: typeof IntegrationAppsRoute
-  MeetingRoute: typeof MeetingRoute
-  RoutingRoute: typeof RoutingRoute
-  UserRoute: typeof UserRouteWithChildren
-  WorkflowsRoute: typeof WorkflowsRoute
-  examplesExampleFormRoute: typeof examplesExampleFormRoute
+  adminAdminRoute: typeof adminAdminRouteWithChildren
+  adminAdminCenterRoute: typeof adminAdminCenterRoute
+  adminAnalyticsRoute: typeof adminAnalyticsRoute
+  adminAvailabilityRoute: typeof adminAvailabilityRoute
+  adminContactRoute: typeof adminContactRoute
+  adminEventTypeRoute: typeof adminEventTypeRoute
+  adminIntegrationAppsRoute: typeof adminIntegrationAppsRoute
+  adminMeetingRoute: typeof adminMeetingRoute
+  adminRoutingRoute: typeof adminRoutingRoute
+  adminWorkflowsRoute: typeof adminWorkflowsRoute
+  userUserRoute: typeof userUserRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRouteWithChildren,
-  AdminCenterRoute: AdminCenterRoute,
-  AnalyticsRoute: AnalyticsRoute,
   AuthRoute: AuthRouteWithChildren,
-  AvailabilityRoute: AvailabilityRoute,
-  ContactRoute: ContactRoute,
-  EventTypeRoute: EventTypeRoute,
-  IntegrationAppsRoute: IntegrationAppsRoute,
-  MeetingRoute: MeetingRoute,
-  RoutingRoute: RoutingRoute,
-  UserRoute: UserRouteWithChildren,
-  WorkflowsRoute: WorkflowsRoute,
-  examplesExampleFormRoute: examplesExampleFormRoute,
+  adminAdminRoute: adminAdminRouteWithChildren,
+  adminAdminCenterRoute: adminAdminCenterRoute,
+  adminAnalyticsRoute: adminAnalyticsRoute,
+  adminAvailabilityRoute: adminAvailabilityRoute,
+  adminContactRoute: adminContactRoute,
+  adminEventTypeRoute: adminEventTypeRoute,
+  adminIntegrationAppsRoute: adminIntegrationAppsRoute,
+  adminMeetingRoute: adminMeetingRoute,
+  adminRoutingRoute: adminRoutingRoute,
+  adminWorkflowsRoute: adminWorkflowsRoute,
+  userUserRoute: userUserRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -568,36 +550,22 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/admin",
-        "/admin-center",
-        "/analytics",
         "/auth",
-        "/availability",
-        "/contact",
-        "/event-type",
-        "/integration-apps",
-        "/meeting",
-        "/routing",
-        "/user",
-        "/workflows",
-        "/(examples)/example-form"
+        "/(admin)/admin",
+        "/(admin)/admin-center",
+        "/(admin)/analytics",
+        "/(admin)/availability",
+        "/(admin)/contact",
+        "/(admin)/event-type",
+        "/(admin)/integration-apps",
+        "/(admin)/meeting",
+        "/(admin)/routing",
+        "/(admin)/workflows",
+        "/(user)/user"
       ]
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/admin": {
-      "filePath": "admin.tsx",
-      "children": [
-        "/admin/dashboard",
-        "/admin/user-management"
-      ]
-    },
-    "/admin-center": {
-      "filePath": "admin-center.tsx"
-    },
-    "/analytics": {
-      "filePath": "analytics.ts"
     },
     "/auth": {
       "filePath": "auth.tsx",
@@ -606,46 +574,48 @@ export const routeTree = rootRoute
         "/auth/sign-up"
       ]
     },
-    "/availability": {
-      "filePath": "availability.tsx"
-    },
-    "/contact": {
-      "filePath": "contact.tsx"
-    },
-    "/event-type": {
-      "filePath": "event-type.tsx"
-    },
-    "/integration-apps": {
-      "filePath": "integration-apps.tsx"
-    },
-    "/meeting": {
-      "filePath": "meeting.tsx"
-    },
-    "/routing": {
-      "filePath": "routing.tsx"
-    },
-    "/user": {
-      "filePath": "user.tsx",
+    "/(admin)/admin": {
+      "filePath": "(admin)/admin.tsx",
       "children": [
-        "/user/account-settings",
-        "/user/change-email",
-        "/user/change-password",
-        "/user/email-verification"
+        "/(admin)/admin/dashboard",
+        "/(admin)/admin/user-management"
       ]
     },
-    "/workflows": {
-      "filePath": "workflows.tsx"
+    "/(admin)/admin-center": {
+      "filePath": "(admin)/admin-center.tsx"
     },
-    "/(examples)/example-form": {
-      "filePath": "(examples)/example-form.tsx"
+    "/(admin)/analytics": {
+      "filePath": "(admin)/analytics.tsx"
     },
-    "/admin/dashboard": {
-      "filePath": "admin.dashboard.tsx",
-      "parent": "/admin"
+    "/(admin)/availability": {
+      "filePath": "(admin)/availability.tsx"
     },
-    "/admin/user-management": {
-      "filePath": "admin.user-management.tsx",
-      "parent": "/admin"
+    "/(admin)/contact": {
+      "filePath": "(admin)/contact.tsx"
+    },
+    "/(admin)/event-type": {
+      "filePath": "(admin)/event-type.tsx"
+    },
+    "/(admin)/integration-apps": {
+      "filePath": "(admin)/integration-apps.tsx"
+    },
+    "/(admin)/meeting": {
+      "filePath": "(admin)/meeting.tsx"
+    },
+    "/(admin)/routing": {
+      "filePath": "(admin)/routing.tsx"
+    },
+    "/(admin)/workflows": {
+      "filePath": "(admin)/workflows.tsx"
+    },
+    "/(user)/user": {
+      "filePath": "(user)/user.tsx",
+      "children": [
+        "/(user)/user/account-settings",
+        "/(user)/user/change-email",
+        "/(user)/user/change-password",
+        "/(user)/user/email-verification"
+      ]
     },
     "/auth/sign-in": {
       "filePath": "auth.sign-in.tsx",
@@ -655,21 +625,29 @@ export const routeTree = rootRoute
       "filePath": "auth.sign-up.tsx",
       "parent": "/auth"
     },
-    "/user/account-settings": {
-      "filePath": "user.account-settings.tsx",
-      "parent": "/user"
+    "/(admin)/admin/dashboard": {
+      "filePath": "(admin)/admin.dashboard.tsx",
+      "parent": "/(admin)/admin"
     },
-    "/user/change-email": {
-      "filePath": "user.change-email.tsx",
-      "parent": "/user"
+    "/(admin)/admin/user-management": {
+      "filePath": "(admin)/admin.user-management.tsx",
+      "parent": "/(admin)/admin"
     },
-    "/user/change-password": {
-      "filePath": "user.change-password.tsx",
-      "parent": "/user"
+    "/(user)/user/account-settings": {
+      "filePath": "(user)/user.account-settings.tsx",
+      "parent": "/(user)/user"
     },
-    "/user/email-verification": {
-      "filePath": "user.email-verification.tsx",
-      "parent": "/user"
+    "/(user)/user/change-email": {
+      "filePath": "(user)/user.change-email.tsx",
+      "parent": "/(user)/user"
+    },
+    "/(user)/user/change-password": {
+      "filePath": "(user)/user.change-password.tsx",
+      "parent": "/(user)/user"
+    },
+    "/(user)/user/email-verification": {
+      "filePath": "(user)/user.email-verification.tsx",
+      "parent": "/(user)/user"
     }
   }
 }

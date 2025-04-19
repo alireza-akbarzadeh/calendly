@@ -9,25 +9,26 @@ import { authClient } from '~/libs/auth-client'
 import { tKey } from '~/libs/i18n'
 import { passwordSchema } from '~/services/auth.schema'
 
-export const Route = createFileRoute('/user/change-password')({
+export const Route = createFileRoute('/(user)/user/change-password')({
   component: ChangePasswordRoute,
 })
 
-const changePasswordSchema = (t = tKey) => z
-  .object({
-    revokeOtherSessions: z.boolean().optional(),
-    currentPassword: passwordSchema(t),
-    newPassword: passwordSchema(t),
-    newPasswordConfirm: passwordSchema(t),
-  })
-  .refine((values) => values.newPassword !== values.currentPassword, {
-    path: ['newPassword'],
-    message: t('auth.password-must-different'),
-  })
-  .refine((values) => values.newPassword === values.newPasswordConfirm, {
-    path: ['newPasswordConfirm'],
-    message: t('auth.password-must-match'),
-  })
+const changePasswordSchema = (t = tKey) =>
+  z
+    .object({
+      revokeOtherSessions: z.boolean().optional(),
+      currentPassword: passwordSchema(t),
+      newPassword: passwordSchema(t),
+      newPasswordConfirm: passwordSchema(t),
+    })
+    .refine((values) => values.newPassword !== values.currentPassword, {
+      path: ['newPassword'],
+      message: t('auth.password-must-different'),
+    })
+    .refine((values) => values.newPassword === values.newPasswordConfirm, {
+      path: ['newPasswordConfirm'],
+      message: t('auth.password-must-match'),
+    })
 
 function ChangePasswordRoute() {
   const t = useTranslations()
@@ -60,9 +61,9 @@ function ChangePasswordRoute() {
           - https://goo.gl/9p2vKq
           - https://stackoverflow.com/a/77160563
       */}
-      <input hidden type='text' autoComplete='username' />
+      <input hidden type="text" autoComplete="username" />
       <form.Field
-        name='currentPassword'
+        name="currentPassword"
         render={(field) => (
           <field.Container label={t('auth.current-password')}>
             <InputPassword />
@@ -70,7 +71,7 @@ function ChangePasswordRoute() {
         )}
       />
       <form.Field
-        name='newPassword'
+        name="newPassword"
         render={(field) => (
           <field.Container label={t('auth.new-password')}>
             <InputPassword />
@@ -78,16 +79,14 @@ function ChangePasswordRoute() {
         )}
       />
       <form.Field
-        name='newPasswordConfirm'
+        name="newPasswordConfirm"
         render={(field) => (
           <field.Container label={t('auth.new-password-confirm')}>
             <InputPassword />
           </field.Container>
         )}
       />
-      <form.Submit>
-        {t('common.submit')}
-      </form.Submit>
+      <form.Submit>{t('common.submit')}</form.Submit>
     </form.Root>
   )
 }

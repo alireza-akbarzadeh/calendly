@@ -8,14 +8,19 @@ import { Input } from '~/components/ui/input'
 import { authClient } from '~/libs/auth-client'
 import { tKey } from '~/libs/i18n'
 import { useAuthedQuery } from '~/services/auth.query'
-import { NAME_MAX, nameSchema, USERNAME_MAX, usernameSchema } from '~/services/auth.schema'
+import {
+  NAME_MAX,
+  nameSchema,
+  USERNAME_MAX,
+  usernameSchema,
+} from '~/services/auth.schema'
 
-export const Route = createFileRoute('/user/account-settings')({
+export const Route = createFileRoute('/(user)/user/account-settings')({
   component: AccountSettingsRoute,
 })
 
-const updateUserSchema = (t = tKey) => z
-  .object({
+const updateUserSchema = (t = tKey) =>
+  z.object({
     username: usernameSchema(t).optional(),
     name: nameSchema(t).optional(),
   })
@@ -48,7 +53,7 @@ function AccountSettingsRoute() {
   return (
     <form.Root>
       <form.Field
-        name='username'
+        name="username"
         render={(field) => (
           <field.Container
             label={t('auth.username')}
@@ -60,7 +65,7 @@ function AccountSettingsRoute() {
         )}
       />
       <form.Field
-        name='name'
+        name="name"
         render={(field) => (
           <field.Container
             label={t('auth.name')}
@@ -71,9 +76,7 @@ function AccountSettingsRoute() {
           </field.Container>
         )}
       />
-      <form.Submit>
-        {t('common.save')}
-      </form.Submit>
+      <form.Submit>{t('common.save')}</form.Submit>
     </form.Root>
   )
 }

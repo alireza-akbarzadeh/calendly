@@ -4,31 +4,43 @@ import { useTranslations } from 'use-intl'
 import { z } from 'zod'
 
 import { Button } from '~/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
 import { useForm } from '~/components/ui/form'
 import { Input } from '~/components/ui/input'
 import { InputPassword } from '~/components/ui/input-password'
 import { Link } from '~/components/ui/link'
 import { authClient } from '~/libs/auth-client'
 import { tKey } from '~/libs/i18n'
-import { emailSchema, nameSchema, passwordSchema, usernameSchema } from '~/services/auth.schema'
+import {
+  emailSchema,
+  nameSchema,
+  passwordSchema,
+  usernameSchema,
+} from '~/services/auth.schema'
 
 export const Route = createFileRoute('/auth/sign-up')({
   component: SignUpRoute,
 })
 
-const signUpSchema = (t = tKey) => z
-  .object({
-    name: nameSchema(t),
-    email: emailSchema(t),
-    username: usernameSchema(t),
-    password: passwordSchema(t),
-    passwordConfirm: passwordSchema(t),
-  })
-  .refine((values) => values.password === values.passwordConfirm, {
-    path: ['passwordConfirm'],
-    message: t('auth.password-must-match'),
-  })
+const signUpSchema = (t = tKey) =>
+  z
+    .object({
+      name: nameSchema(t),
+      email: emailSchema(t),
+      username: usernameSchema(t),
+      password: passwordSchema(t),
+      passwordConfirm: passwordSchema(t),
+    })
+    .refine((values) => values.password === values.passwordConfirm, {
+      path: ['passwordConfirm'],
+      message: t('auth.password-must-match'),
+    })
 
 function SignUpRoute() {
   const t = useTranslations()
@@ -63,16 +75,16 @@ function SignUpRoute() {
   })
 
   return (
-    <Card className='w-full lg:max-w-md'>
+    <Card className="w-full lg:max-w-md">
       <CardHeader>
         <CardTitle>{t('auth.sign-up')}</CardTitle>
         <CardDescription>{t('auth.sign-up-description')}</CardDescription>
       </CardHeader>
 
-      <CardContent className='space-y-6'>
+      <CardContent className="space-y-6">
         <form.Root>
           <form.Field
-            name='name'
+            name="name"
             render={(field) => (
               <field.Container label={t('auth.name')}>
                 <Input />
@@ -80,7 +92,7 @@ function SignUpRoute() {
             )}
           />
           <form.Field
-            name='email'
+            name="email"
             render={(field) => (
               <field.Container label={t('auth.email')}>
                 <Input />
@@ -88,7 +100,7 @@ function SignUpRoute() {
             )}
           />
           <form.Field
-            name='username'
+            name="username"
             render={(field) => (
               <field.Container label={t('auth.username')}>
                 <Input />
@@ -96,7 +108,7 @@ function SignUpRoute() {
             )}
           />
           <form.Field
-            name='password'
+            name="password"
             render={(field) => (
               <field.Container label={t('auth.password')}>
                 <InputPassword />
@@ -104,22 +116,20 @@ function SignUpRoute() {
             )}
           />
           <form.Field
-            name='passwordConfirm'
+            name="passwordConfirm"
             render={(field) => (
               <field.Container label={t('auth.password-confirm')}>
                 <InputPassword />
               </field.Container>
             )}
           />
-          <form.Submit>
-            {t('auth.sign-up')}
-          </form.Submit>
+          <form.Submit>{t('auth.sign-up')}</form.Submit>
         </form.Root>
 
-        <div className='flex items-center justify-center gap-2'>
+        <div className="flex items-center justify-center gap-2">
           <p>{t('auth.already-have-an-account')}</p>
-          <Button asChild variant='link' className='h-auto p-0 text-base'>
-            <Link to='/auth/sign-in'>{t('auth.sign-in')}</Link>
+          <Button asChild variant="link" className="h-auto p-0 text-base">
+            <Link to="/auth/sign-in">{t('auth.sign-in')}</Link>
           </Button>
         </div>
       </CardContent>

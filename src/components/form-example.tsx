@@ -1,16 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { toast } from 'sonner'
-import { z } from 'zod'
+import { toast } from "sonner";
+import { z } from "zod";
 
-import { Checkbox } from '~/components/ui/checkbox'
-import { useForm } from '~/components/ui/form'
-import { Input } from '~/components/ui/input'
-import { InputPassword } from '~/components/ui/input-password'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '~/components/ui/select'
-
-export const Route = createFileRoute('/(examples)/example-form')({
-  component: ExampleFormRoute,
-})
+import { Checkbox } from "~/components/ui/checkbox";
+import { useForm } from "~/components/ui/form";
+import { Input } from "~/components/ui/input";
+import { InputPassword } from "~/components/ui/input-password";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "~/components/ui/select";
 
 const exampleSchema = z
   .object({
@@ -25,64 +26,61 @@ const exampleSchema = z
     emailNotifications: z.array(z.string()),
   })
   .refine((values) => values.password === values.confirmPassword, {
-    path: ['confirmPassword'],
-    message: 'Passwords do not match',
-  })
+    path: ["confirmPassword"],
+    message: "Passwords do not match",
+  });
 
 function ExampleFormRoute() {
   const form = useForm(exampleSchema, {
     defaultValues: {
-      firstName: 'John',
-      lastName: 'Doe',
+      firstName: "John",
+      lastName: "Doe",
       age: 18,
-      gender: 'male',
-      email: 'john@example.com',
-      password: '12345678',
-      confirmPassword: '12345678',
+      gender: "male",
+      email: "john@example.com",
+      password: "12345678",
+      confirmPassword: "12345678",
       acceptTerms: true,
-      emailNotifications: ['news'],
+      emailNotifications: ["news"],
     },
     onSubmit: ({ value, formApi }) => {
-      toast.success('Submitted!')
-      console.table(value)
-      formApi.reset()
+      toast.success("Submitted!");
+      console.table(value);
+      formApi.reset();
     },
-  })
+  });
 
   return (
     <form.Root>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className="grid grid-cols-2 gap-4">
         <form.Field
-          name='firstName'
+          name="firstName"
           render={(field) => (
-            <field.Container label='First Name'>
-              <Input autoComplete='given-name' />
+            <field.Container label="First Name">
+              <Input autoComplete="given-name" />
             </field.Container>
           )}
         />
         <form.Field
-          name='lastName'
+          name="lastName"
           render={(field) => (
-            <field.Container label='Last Name'>
-              <Input autoComplete='family-name' />
+            <field.Container label="Last Name">
+              <Input autoComplete="family-name" />
             </field.Container>
           )}
         />
         <form.Field
-          name='age'
+          name="age"
           render={(field) => (
-            <field.Container label='Age'>
-              <Input type='number' />
+            <field.Container label="Age">
+              <Input type="number" />
             </field.Container>
           )}
         />
         <form.Field
-          name='gender'
+          name="gender"
           render={(field) => (
-            <field.Container
-              label='Gender'
-              disableController
-            >
+            <field.Container label="Gender" disableController>
               <Select
                 value={field.state.value}
                 onValueChange={field.handleChange}
@@ -92,12 +90,12 @@ function ExampleFormRoute() {
                   name={field.name}
                   onBlur={field.handleBlur}
                 >
-                  <SelectValue placeholder='Select a gender' />
+                  <SelectValue placeholder="Select a gender" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value='male'>Male</SelectItem>
-                  <SelectItem value='female'>Female</SelectItem>
-                  <SelectItem value='other'>Other</SelectItem>
+                  <SelectItem value="male">Male</SelectItem>
+                  <SelectItem value="female">Female</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
             </field.Container>
@@ -105,41 +103,43 @@ function ExampleFormRoute() {
         />
       </div>
       <form.Field
-        name='email'
+        name="email"
         render={(field) => (
-          <field.Container label='Email'>
-            <Input type='email' autoComplete='email' />
+          <field.Container label="Email">
+            <Input type="email" autoComplete="email" />
           </field.Container>
         )}
       />
       <form.Field
-        name='password'
+        name="password"
         render={(field) => (
-          <field.Container label='Password'>
-            <InputPassword autoComplete='new-password' />
+          <field.Container label="Password">
+            <InputPassword autoComplete="new-password" />
           </field.Container>
         )}
       />
       <form.Field
-        name='confirmPassword'
+        name="confirmPassword"
         render={(field) => (
-          <field.Container label='Confirm Password'>
-            <InputPassword autoComplete='new-password' />
+          <field.Container label="Confirm Password">
+            <InputPassword autoComplete="new-password" />
           </field.Container>
         )}
       />
       <form.Field
-        name='acceptTerms'
+        name="acceptTerms"
         render={(field) => (
-          <div className='flex items-start space-x-2'>
+          <div className="flex items-start space-x-2">
             <field.Controller>
               <Checkbox
                 checked={field.state.value}
-                onCheckedChange={(value) => field.handleChange(value === 'indeterminate' ? false : value)}
+                onCheckedChange={(value) =>
+                  field.handleChange(value === "indeterminate" ? false : value)
+                }
               />
             </field.Controller>
-            <div className='grid gap-1.5'>
-              <field.Label className='leading-none'>
+            <div className="grid gap-1.5">
+              <field.Label className="leading-none">
                 Accept terms and conditions
               </field.Label>
               <field.Detail>
@@ -150,16 +150,18 @@ function ExampleFormRoute() {
         )}
       />
       <form.Field
-        name='emailNotifications'
+        name="emailNotifications"
         render={(field) => (
-          <div className='space-y-4'>
+          <div className="space-y-4">
             <div>
               <field.Label> Notifications</field.Label>
-              <field.Detail>Which of these would you like to receive?</field.Detail>
+              <field.Detail>
+                Which of these would you like to receive?
+              </field.Detail>
             </div>
-            <ul className='space-y-2'>
-              {['news', 'promotions', 'updates'].map((notification) => (
-                <li key={notification} className='flex items-center space-x-2'>
+            <ul className="space-y-2">
+              {["news", "promotions", "updates"].map((notification) => (
+                <li key={notification} className="flex items-center space-x-2">
                   <field.Controller>
                     <Checkbox
                       id={notification}
@@ -167,9 +169,11 @@ function ExampleFormRoute() {
                       onCheckedChange={() => {
                         field.handleChange(
                           field.state.value.includes(notification)
-                            ? field.state.value.filter((v) => v !== notification)
+                            ? field.state.value.filter(
+                                (v) => v !== notification,
+                              )
                             : [...field.state.value, notification],
-                        )
+                        );
                       }}
                     />
                   </field.Controller>
@@ -184,5 +188,5 @@ function ExampleFormRoute() {
       />
       <form.Submit>Submit</form.Submit>
     </form.Root>
-  )
+  );
 }
