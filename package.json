@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-boilerplate",
+  "name": "calendly",
   "type": "module",
   "scripts": {
     "dev": "pnpm clean && dotenv -e .env.development vinxi dev",

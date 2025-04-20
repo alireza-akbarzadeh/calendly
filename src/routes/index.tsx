@@ -11,7 +11,7 @@ export const Route = createFileRoute('/')({
 
 function HomeRoute() {
   return (
-    <div className='flex size-full flex-col items-center justify-center space-y-6 pb-16'>
+    <section className='flex size-full flex-col items-center justify-center space-y-6 pb-16'>
       <Typography.H1>
         {import.meta.env.VITE_APP_NAME}
       </Typography.H1>
@@ -24,6 +24,6 @@ function HomeRoute() {
           View on GitHub
         </Link>
       </Button>
-    </div>
+    </section>
   )
 }
