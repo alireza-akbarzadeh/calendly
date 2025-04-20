@@ -7,6 +7,9 @@ node_modules
 # Build
 .vinxi
 .output
+dist
+
+.netlify
 
 # Environment Variables
 .env
@@ -15,7 +18,6 @@ node_modules
 
 # Others
 app.config.timestamp_*
-
 # Logs
 logs
 *.log
