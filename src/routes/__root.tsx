@@ -14,6 +14,7 @@ import { createTranslator, IntlProvider } from 'use-intl'
 import type { ErrorComponentProps } from '@tanstack/react-router'
 import type { PropsWithChildren } from 'react'
 
+import { Footer, Header } from '~/components/sections'
 import { ThemeProvider } from '~/components/theme'
 import { Toaster } from '~/components/ui/sonner'
 import { Typography } from '~/components/ui/typography'
@@ -105,9 +106,9 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootComponent() {
   return (
     <Document>
-      <main className='flex h-full flex-1 flex-col items-center px-4'>
-        <Outlet />
-      </main>
+      <Header />
+      <Outlet />
+      <Footer />
     </Document>
   )
 }

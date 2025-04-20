@@ -4,7 +4,7 @@ import { clsx } from 'clsx'
 import { camelCase } from 'es-toolkit'
 import { createContext, useContext } from 'react'
 import { twMerge } from 'tailwind-merge'
-import type { ClassArray } from 'clsx'
+import type { ClassArray, ClassValue } from 'clsx'
 import type { JSX } from 'react'
 import type { CamelCase, LiteralUnion, Simplify } from 'type-fest'
 
@@ -245,4 +245,8 @@ export function createMetadata(metadata: Metadata): Meta[] {
   }
 
   return meta
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
 }
