@@ -1,9 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { BsGithub } from 'react-icons/bs'
-
-import { Button } from '~/components/ui/button'
-import { Link } from '~/components/ui/link'
-import { Typography } from '~/components/ui/typography'
 
 export const Route = createFileRoute('/')({
   component: HomeRoute,
@@ -11,20 +6,10 @@ export const Route = createFileRoute('/')({
 
 function HomeRoute() {
   return (
-    <main className='flex h-full flex-1 flex-col items-center px-4'>
+
+    <main className='mx-auto flex h-full max-w-7xl flex-1 flex-col items-center  px-4 sm:px-6 lg:px-8'>
       <section className='flex size-full flex-1 flex-col items-center justify-center space-y-6 pb-16'>
-        <Typography.H1>
-          {import.meta.env.VITE_APP_NAME}
-        </Typography.H1>
-        <Typography.P>
-          A fully <strong>type-safe</strong> boilerplate with a focus on UX and DX, complete with multiple examples.
-        </Typography.P>
-        <Button asChild>
-          <Link to='https://github.com/nekochan0122/tanstack-boilerplate'>
-            <BsGithub />
-            View on GitHub
-          </Link>
-        </Button>
+        home
       </section>
     </main>
   )

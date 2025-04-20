@@ -126,7 +126,7 @@ function ErrorComponent({ error }: ErrorComponentProps) {
     <Document>
       <div className='space-y-6 p-6'>
         <Typography.H1>Error</Typography.H1>
-        <p className='text-destructive'>{error.message}</p>
+        <Typography.P className='text-destructive'>{error.message}</Typography.P>
       </div>
     </Document>
   )

@@ -58,6 +58,14 @@ function Paragraph({ className, ...props }: ComponentProps<'p'>) {
     />
   )
 }
+function Span({ className, ...props }: ComponentProps<'p'>) {
+  return (
+    <span
+      className={cx('leading-7 [&:not(:first-child)]:mt-6', className)}
+      {...props}
+    />
+  )
+}
 
 function Blockquote({ className, ...props }: ComponentProps<'blockquote'>) {
   return (
@@ -75,6 +83,7 @@ const Typography = {
   H4: Heading4,
   P: Paragraph,
   Blockquote,
+  S: Span,
 }
 
 export { Typography }
