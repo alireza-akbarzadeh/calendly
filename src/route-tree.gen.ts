@@ -24,7 +24,9 @@ import { Route as userUserAccountSettingsImport } from './routes/(user)/user.acc
 import { Route as adminAdminWorkflowsImport } from './routes/(admin)/admin.workflows'
 import { Route as adminAdminUserManagementImport } from './routes/(admin)/admin.user-management'
 import { Route as adminAdminUpgradePlanImport } from './routes/(admin)/admin.upgrade-plan'
+import { Route as adminAdminSettingImport } from './routes/(admin)/admin.setting'
 import { Route as adminAdminRoutingImport } from './routes/(admin)/admin.routing'
+import { Route as adminAdminProfileImport } from './routes/(admin)/admin.profile'
 import { Route as adminAdminMeetingImport } from './routes/(admin)/admin.meeting'
 import { Route as adminAdminIntegrationAppsImport } from './routes/(admin)/admin.integration-apps'
 import { Route as adminAdminEventTypeImport } from './routes/(admin)/admin.event-type'
@@ -32,6 +34,7 @@ import { Route as adminAdminContactImport } from './routes/(admin)/admin.contact
 import { Route as adminAdminAvailabilityImport } from './routes/(admin)/admin.availability'
 import { Route as adminAdminAnalyticsImport } from './routes/(admin)/admin.analytics'
 import { Route as adminAdminAdminCenterImport } from './routes/(admin)/admin.admin-center'
+import { Route as adminAdminAccountSettingsImport } from './routes/(admin)/admin.account-settings'
 
 // Create/Update Routes
 
@@ -113,9 +116,21 @@ const adminAdminUpgradePlanRoute = adminAdminUpgradePlanImport.update({
   getParentRoute: () => adminAdminRoute,
 } as any)
 
+const adminAdminSettingRoute = adminAdminSettingImport.update({
+  id: '/setting',
+  path: '/setting',
+  getParentRoute: () => adminAdminRoute,
+} as any)
+
 const adminAdminRoutingRoute = adminAdminRoutingImport.update({
   id: '/routing',
   path: '/routing',
+  getParentRoute: () => adminAdminRoute,
+} as any)
+
+const adminAdminProfileRoute = adminAdminProfileImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => adminAdminRoute,
 } as any)
 
@@ -158,6 +173,12 @@ const adminAdminAnalyticsRoute = adminAdminAnalyticsImport.update({
 const adminAdminAdminCenterRoute = adminAdminAdminCenterImport.update({
   id: '/admin-center',
   path: '/admin-center',
+  getParentRoute: () => adminAdminRoute,
+} as any)
+
+const adminAdminAccountSettingsRoute = adminAdminAccountSettingsImport.update({
+  id: '/account-settings',
+  path: '/account-settings',
   getParentRoute: () => adminAdminRoute,
 } as any)
 
@@ -206,6 +227,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/auth/sign-up'
       preLoaderRoute: typeof AuthSignUpImport
       parentRoute: typeof AuthImport
+    }
+    '/(admin)/admin/account-settings': {
+      id: '/(admin)/admin/account-settings'
+      path: '/account-settings'
+      fullPath: '/admin/account-settings'
+      preLoaderRoute: typeof adminAdminAccountSettingsImport
+      parentRoute: typeof adminAdminImport
     }
     '/(admin)/admin/admin-center': {
       id: '/(admin)/admin/admin-center'
@@ -256,11 +284,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof adminAdminMeetingImport
       parentRoute: typeof adminAdminImport
     }
+    '/(admin)/admin/profile': {
+      id: '/(admin)/admin/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof adminAdminProfileImport
+      parentRoute: typeof adminAdminImport
+    }
     '/(admin)/admin/routing': {
       id: '/(admin)/admin/routing'
       path: '/routing'
       fullPath: '/admin/routing'
       preLoaderRoute: typeof adminAdminRoutingImport
+      parentRoute: typeof adminAdminImport
+    }
+    '/(admin)/admin/setting': {
+      id: '/(admin)/admin/setting'
+      path: '/setting'
+      fullPath: '/admin/setting'
+      preLoaderRoute: typeof adminAdminSettingImport
       parentRoute: typeof adminAdminImport
     }
     '/(admin)/admin/upgrade-plan': {
@@ -330,6 +372,7 @@ const AuthRouteChildren: AuthRouteChildren = {
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface adminAdminRouteChildren {
+  adminAdminAccountSettingsRoute: typeof adminAdminAccountSettingsRoute
   adminAdminAdminCenterRoute: typeof adminAdminAdminCenterRoute
   adminAdminAnalyticsRoute: typeof adminAdminAnalyticsRoute
   adminAdminAvailabilityRoute: typeof adminAdminAvailabilityRoute
@@ -337,13 +380,16 @@ interface adminAdminRouteChildren {
   adminAdminEventTypeRoute: typeof adminAdminEventTypeRoute
   adminAdminIntegrationAppsRoute: typeof adminAdminIntegrationAppsRoute
   adminAdminMeetingRoute: typeof adminAdminMeetingRoute
+  adminAdminProfileRoute: typeof adminAdminProfileRoute
   adminAdminRoutingRoute: typeof adminAdminRoutingRoute
+  adminAdminSettingRoute: typeof adminAdminSettingRoute
   adminAdminUpgradePlanRoute: typeof adminAdminUpgradePlanRoute
   adminAdminUserManagementRoute: typeof adminAdminUserManagementRoute
   adminAdminWorkflowsRoute: typeof adminAdminWorkflowsRoute
 }
 
 const adminAdminRouteChildren: adminAdminRouteChildren = {
+  adminAdminAccountSettingsRoute: adminAdminAccountSettingsRoute,
   adminAdminAdminCenterRoute: adminAdminAdminCenterRoute,
   adminAdminAnalyticsRoute: adminAdminAnalyticsRoute,
   adminAdminAvailabilityRoute: adminAdminAvailabilityRoute,
@@ -351,7 +397,9 @@ const adminAdminRouteChildren: adminAdminRouteChildren = {
   adminAdminEventTypeRoute: adminAdminEventTypeRoute,
   adminAdminIntegrationAppsRoute: adminAdminIntegrationAppsRoute,
   adminAdminMeetingRoute: adminAdminMeetingRoute,
+  adminAdminProfileRoute: adminAdminProfileRoute,
   adminAdminRoutingRoute: adminAdminRoutingRoute,
+  adminAdminSettingRoute: adminAdminSettingRoute,
   adminAdminUpgradePlanRoute: adminAdminUpgradePlanRoute,
   adminAdminUserManagementRoute: adminAdminUserManagementRoute,
   adminAdminWorkflowsRoute: adminAdminWorkflowsRoute,
@@ -386,6 +434,7 @@ export interface FileRoutesByFullPath {
   '/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
+  '/admin/account-settings': typeof adminAdminAccountSettingsRoute
   '/admin/admin-center': typeof adminAdminAdminCenterRoute
   '/admin/analytics': typeof adminAdminAnalyticsRoute
   '/admin/availability': typeof adminAdminAvailabilityRoute
@@ -393,7 +442,9 @@ export interface FileRoutesByFullPath {
   '/admin/event-type': typeof adminAdminEventTypeRoute
   '/admin/integration-apps': typeof adminAdminIntegrationAppsRoute
   '/admin/meeting': typeof adminAdminMeetingRoute
+  '/admin/profile': typeof adminAdminProfileRoute
   '/admin/routing': typeof adminAdminRoutingRoute
+  '/admin/setting': typeof adminAdminSettingRoute
   '/admin/upgrade-plan': typeof adminAdminUpgradePlanRoute
   '/admin/user-management': typeof adminAdminUserManagementRoute
   '/admin/workflows': typeof adminAdminWorkflowsRoute
@@ -410,6 +461,7 @@ export interface FileRoutesByTo {
   '/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
+  '/admin/account-settings': typeof adminAdminAccountSettingsRoute
   '/admin/admin-center': typeof adminAdminAdminCenterRoute
   '/admin/analytics': typeof adminAdminAnalyticsRoute
   '/admin/availability': typeof adminAdminAvailabilityRoute
@@ -417,7 +469,9 @@ export interface FileRoutesByTo {
   '/admin/event-type': typeof adminAdminEventTypeRoute
   '/admin/integration-apps': typeof adminAdminIntegrationAppsRoute
   '/admin/meeting': typeof adminAdminMeetingRoute
+  '/admin/profile': typeof adminAdminProfileRoute
   '/admin/routing': typeof adminAdminRoutingRoute
+  '/admin/setting': typeof adminAdminSettingRoute
   '/admin/upgrade-plan': typeof adminAdminUpgradePlanRoute
   '/admin/user-management': typeof adminAdminUserManagementRoute
   '/admin/workflows': typeof adminAdminWorkflowsRoute
@@ -435,6 +489,7 @@ export interface FileRoutesById {
   '/(user)/user': typeof userUserRouteWithChildren
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
+  '/(admin)/admin/account-settings': typeof adminAdminAccountSettingsRoute
   '/(admin)/admin/admin-center': typeof adminAdminAdminCenterRoute
   '/(admin)/admin/analytics': typeof adminAdminAnalyticsRoute
   '/(admin)/admin/availability': typeof adminAdminAvailabilityRoute
@@ -442,7 +497,9 @@ export interface FileRoutesById {
   '/(admin)/admin/event-type': typeof adminAdminEventTypeRoute
   '/(admin)/admin/integration-apps': typeof adminAdminIntegrationAppsRoute
   '/(admin)/admin/meeting': typeof adminAdminMeetingRoute
+  '/(admin)/admin/profile': typeof adminAdminProfileRoute
   '/(admin)/admin/routing': typeof adminAdminRoutingRoute
+  '/(admin)/admin/setting': typeof adminAdminSettingRoute
   '/(admin)/admin/upgrade-plan': typeof adminAdminUpgradePlanRoute
   '/(admin)/admin/user-management': typeof adminAdminUserManagementRoute
   '/(admin)/admin/workflows': typeof adminAdminWorkflowsRoute
@@ -461,6 +518,7 @@ export interface FileRouteTypes {
     | '/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
+    | '/admin/account-settings'
     | '/admin/admin-center'
     | '/admin/analytics'
     | '/admin/availability'
@@ -468,7 +526,9 @@ export interface FileRouteTypes {
     | '/admin/event-type'
     | '/admin/integration-apps'
     | '/admin/meeting'
+    | '/admin/profile'
     | '/admin/routing'
+    | '/admin/setting'
     | '/admin/upgrade-plan'
     | '/admin/user-management'
     | '/admin/workflows'
@@ -484,6 +544,7 @@ export interface FileRouteTypes {
     | '/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
+    | '/admin/account-settings'
     | '/admin/admin-center'
     | '/admin/analytics'
     | '/admin/availability'
@@ -491,7 +552,9 @@ export interface FileRouteTypes {
     | '/admin/event-type'
     | '/admin/integration-apps'
     | '/admin/meeting'
+    | '/admin/profile'
     | '/admin/routing'
+    | '/admin/setting'
     | '/admin/upgrade-plan'
     | '/admin/user-management'
     | '/admin/workflows'
@@ -507,6 +570,7 @@ export interface FileRouteTypes {
     | '/(user)/user'
     | '/auth/sign-in'
     | '/auth/sign-up'
+    | '/(admin)/admin/account-settings'
     | '/(admin)/admin/admin-center'
     | '/(admin)/admin/analytics'
     | '/(admin)/admin/availability'
@@ -514,7 +578,9 @@ export interface FileRouteTypes {
     | '/(admin)/admin/event-type'
     | '/(admin)/admin/integration-apps'
     | '/(admin)/admin/meeting'
+    | '/(admin)/admin/profile'
     | '/(admin)/admin/routing'
+    | '/(admin)/admin/setting'
     | '/(admin)/admin/upgrade-plan'
     | '/(admin)/admin/user-management'
     | '/(admin)/admin/workflows'
@@ -568,6 +634,7 @@ export const routeTree = rootRoute
     "/(admin)/admin": {
       "filePath": "(admin)/admin.tsx",
       "children": [
+        "/(admin)/admin/account-settings",
         "/(admin)/admin/admin-center",
         "/(admin)/admin/analytics",
         "/(admin)/admin/availability",
@@ -575,7 +642,9 @@ export const routeTree = rootRoute
         "/(admin)/admin/event-type",
         "/(admin)/admin/integration-apps",
         "/(admin)/admin/meeting",
+        "/(admin)/admin/profile",
         "/(admin)/admin/routing",
+        "/(admin)/admin/setting",
         "/(admin)/admin/upgrade-plan",
         "/(admin)/admin/user-management",
         "/(admin)/admin/workflows"
@@ -597,6 +666,10 @@ export const routeTree = rootRoute
     "/auth/sign-up": {
       "filePath": "auth.sign-up.tsx",
       "parent": "/auth"
+    },
+    "/(admin)/admin/account-settings": {
+      "filePath": "(admin)/admin.account-settings.tsx",
+      "parent": "/(admin)/admin"
     },
     "/(admin)/admin/admin-center": {
       "filePath": "(admin)/admin.admin-center.tsx",
@@ -626,8 +699,16 @@ export const routeTree = rootRoute
       "filePath": "(admin)/admin.meeting.tsx",
       "parent": "/(admin)/admin"
     },
+    "/(admin)/admin/profile": {
+      "filePath": "(admin)/admin.profile.tsx",
+      "parent": "/(admin)/admin"
+    },
     "/(admin)/admin/routing": {
       "filePath": "(admin)/admin.routing.tsx",
+      "parent": "/(admin)/admin"
+    },
+    "/(admin)/admin/setting": {
+      "filePath": "(admin)/admin.setting.tsx",
       "parent": "/(admin)/admin"
     },
     "/(admin)/admin/upgrade-plan": {

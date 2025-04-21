@@ -1,4 +1,5 @@
-import { LuCheck, LuChevronsUpDown, LuEllipsis, LuLanguages, LuLogOut, LuPalette, LuUser } from 'react-icons/lu'
+import { LuCheck, LuChevronsUpDown, LuEllipsis, LuLanguages, LuLogOut, LuPalette, LuSettings, LuUser } from 'react-icons/lu'
+import { RiAccountPinBoxFill } from 'react-icons/ri'
 import { useTranslations } from 'use-intl'
 import type { ComponentProps } from 'react'
 
@@ -24,7 +25,7 @@ export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarLogo />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className='pt-5'>
         <ScrollArea>
           <SidebarNavBuilder {...{ navigation }} />
         </ScrollArea>
@@ -45,7 +46,7 @@ function SidebarLogo() {
           <Logo
             src='/png/logo.png'
             alt='Logo'
-            className='size-10'
+            className=' size-10'
             priority
           >
             <Typography.H4 className=''>
@@ -169,6 +170,24 @@ function SidebarUser() {
               <DropdownMenuItem onSelect={() => authClient.signOut()}>
                 <LuLogOut />
                 {t('auth.sign-out')}
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <LuUser />
+                <Link to='/admin/profile'>
+                  {t('navigation.profile')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <RiAccountPinBoxFill />
+                <Link to='/admin/account-settings'>
+                  {t('navigation.account-settings')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <LuSettings />
+                <Link to='/admin/setting'>
+                  {t('navigation.setting')}
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

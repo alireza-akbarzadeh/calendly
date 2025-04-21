@@ -19,6 +19,9 @@ const en = {
   },
   navigation: {
     'home': 'Home',
+    'profile': 'Profile',
+    'setting': 'Setting',
+    'account-setting': 'Account Setting',
     'event-type': 'Event type',
     'meeting': 'Meeting',
     'availability': 'Availability',

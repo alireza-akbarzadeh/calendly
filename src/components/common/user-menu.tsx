@@ -1,3 +1,5 @@
+import { useTranslations } from 'use-intl'
+
 import { authClient } from '@/libs/auth-client'
 import { useAuthQuery } from '@/services/auth.query'
 
@@ -13,11 +15,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
+import { Link } from '../ui/link'
 import { Typography } from '../ui/typography'
 
 export function UserMenu() {
   const authQuery = useAuthQuery()
-
+  const t = useTranslations()
   const handleSignOut = async () => {
     await authClient.signOut()
   }
@@ -49,15 +52,24 @@ export function UserMenu() {
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuItem>
-                Profile
+                <Link to='/admin/profile'>
+                  {t('navigation.profile')}
+                </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                Settings
+                <Link to='/admin/account-settings'>
+                  {t('navigation.account-settings')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link to='/admin/setting'>
+                  {t('navigation.setting')}
+                </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleSignOut} className='text-red-500 focus:text-red-500'>
-              Sign out
+              {t('auth.sign-out')}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
