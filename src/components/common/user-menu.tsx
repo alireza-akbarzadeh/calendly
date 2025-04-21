@@ -1,5 +1,5 @@
 import { authClient } from '@/libs/auth-client'
-import { useAuthedQuery } from '@/services/auth.query'
+import { useAuthQuery } from '@/services/auth.query'
 
 import { Authenticated } from '../auth/authenticated'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
@@ -13,24 +13,27 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
+import { Typography } from '../ui/typography'
 
 export function UserMenu() {
-  const { data } = useAuthedQuery()
+  const authQuery = useAuthQuery()
+
   const handleSignOut = async () => {
     await authClient.signOut()
   }
-  if (data.isAuthenticated)
+  if (authQuery.data.isAuthenticated )
+
     return (
       <Authenticated>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' className='relative size-10 rounded-full'>
               <Avatar className='size-9 border border-border'>
-                {data.user.image ? (
-                  <AvatarImage src={data.user.image} alt={data.user.name || 'User avatar'} />
+                {authQuery.data?.user?.image ? (
+                  <AvatarImage src={authQuery.data?.user?.image} alt={authQuery.data?.user?.name || 'User avatar'} />
                 ) : (
                   <AvatarFallback className='text-xs font-medium'>
-                    {data.user.name ? data.user.name.slice(0, 2).toUpperCase() : 'U'}
+                    {authQuery.data?.user?.name ? authQuery.data.user.name.slice(0, 2).toUpperCase() : 'U'}
                   </AvatarFallback>
                 )}
               </Avatar>
@@ -39,8 +42,8 @@ export function UserMenu() {
           <DropdownMenuContent className='w-56' align='end' forceMount>
             <DropdownMenuLabel className='font-normal'>
               <div className='flex flex-col space-y-1'>
-                <p className='text-sm font-medium leading-none'>{data.user.name || 'User'}</p>
-                <p className='text-xs leading-none text-muted-foreground'>{data.user.email || ''}</p>
+                <Typography.P className='text-sm font-medium leading-none'>{authQuery.data?.user?.name || 'User'}</Typography.P>
+                <Typography.P className='text-xs leading-none text-muted-foreground'>{authQuery.data?.user?.email || ''}</Typography.P>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />

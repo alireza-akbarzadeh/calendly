@@ -1,4 +1,4 @@
-import { LuCheck, LuChevronsUpDown, LuCommand, LuEllipsis, LuLanguages, LuLogOut, LuPalette, LuUser } from 'react-icons/lu'
+import { LuCheck, LuChevronsUpDown, LuEllipsis, LuLanguages, LuLogOut, LuPalette, LuUser } from 'react-icons/lu'
 import { useTranslations } from 'use-intl'
 import type { ComponentProps } from 'react'
 
@@ -14,6 +14,9 @@ import { languageOptions, navigation, themeOptions } from '@/config/sidebar'
 import { authClient } from '@/libs/auth-client'
 import { useAuthQuery } from '@/services/auth.query'
 import { usePreferenceQuery, useUpdatePreferenceMutation } from '@/services/preference.query'
+
+import { Logo } from '../common'
+import { Typography } from '../ui/typography'
 
 export function AppSidebar(props: ComponentProps<typeof Sidebar>) {
   return (
@@ -39,14 +42,19 @@ function SidebarLogo() {
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton size='lg' asChild>
-          <Link to='/'>
-            <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
-              <LuCommand />
-            </div>
-            <div className='grid flex-1 text-left text-sm leading-tight'>
-              <span className='truncate font-semibold'>{import.meta.env.VITE_APP_NAME}</span>
-            </div>
-          </Link>
+          <Logo
+            src='/png/logo.png'
+            alt='Logo'
+            className='size-10'
+            priority
+          >
+            <Typography.H4 className=''>
+              Cal
+              <Typography.S className='bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent'>
+                endly
+              </Typography.S>
+            </Typography.H4>
+          </Logo>
         </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>

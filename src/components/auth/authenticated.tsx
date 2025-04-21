@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { useAuthQuery } from '@/services/auth.query'
+import { useAuthedQuery } from '@/services/auth.query'
 
 interface UnAuthenticatedProps {
   children: ReactNode
@@ -8,9 +8,9 @@ interface UnAuthenticatedProps {
 
 export function Authenticated(props: UnAuthenticatedProps) {
   const { children } = props
-  const { data } = useAuthQuery()
+  const { data } = useAuthedQuery()
 
-  if (data.isAuthenticated) {
+  if (data.user.id) {
     return children
   }
   return null

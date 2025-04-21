@@ -1,7 +1,7 @@
+import globalStyle from '@/styles/global.css?url'
 import fontsourceInter from '@fontsource-variable/inter?url'
 import fontsourceJetBrainsMono from '@fontsource-variable/jetbrains-mono?url'
 import fontsourceNotoSansTC from '@fontsource-variable/noto-sans-tc?url'
-import globalStyle from '@/styles/global.css?url'
 
 import {
   createRootRouteWithContext,
@@ -14,7 +14,6 @@ import { createTranslator, IntlProvider } from 'use-intl'
 import type { ErrorComponentProps } from '@tanstack/react-router'
 import type { PropsWithChildren } from 'react'
 
-import { Footer, Header } from '@/components/sections'
 import { ThemeProvider } from '@/components/theme'
 import { Toaster } from '@/components/ui/sonner'
 import { Typography } from '@/components/ui/typography'
@@ -106,9 +105,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootComponent() {
   return (
     <Document>
-      <Header />
       <Outlet />
-      <Footer />
     </Document>
   )
 }

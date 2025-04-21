@@ -7,8 +7,8 @@ import { usePreferenceQuery, useUpdatePreferenceMutation } from '@/services/pref
 
 import { AuthModal } from '../auth'
 import { UnAuthenticated } from '../auth/un-authenticated'
+import { UserMenu } from '../common'
 import { Logo } from '../common/logo'
-import { UserMenu } from '../common/user-menu'
 import { useTheme } from '../theme'
 import { Button } from '../ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
@@ -28,10 +28,10 @@ export function Header() {
         <Logo
           src='/png/logo.png'
           alt='Logo'
-          className='size-10'
+          className='size-10 gap-0'
           priority
         >
-          <Typography.H4 className=''>
+          <Typography.H4>
             Cal
             <Typography.S className='bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent'>
               endly
@@ -40,7 +40,7 @@ export function Header() {
         </Logo>
       </div>
       <div className='flex items-center gap-2'>
-        {/* <UserMenu /> */}
+        <UserMenu />
         <UnAuthenticated>
           <AuthModal />
         </UnAuthenticated>
@@ -67,7 +67,6 @@ export function Header() {
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' size='icon'>

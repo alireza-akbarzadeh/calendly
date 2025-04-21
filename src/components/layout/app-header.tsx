@@ -6,7 +6,6 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { Link } from '@/components/ui/link'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
-import type { InternalLink } from '@/components/ui/link'
 import type { TranslateKeys } from '@/libs/i18n'
 
 export function AppHeader() {
@@ -32,29 +31,19 @@ export function AppHeader() {
                 </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
-            {paths.length > 0 && <BreadcrumbSeparator />}
-
             {paths.map((path, idx) => {
               const isLast = idx === paths.length - 1
               const hasNext = idx + 1 < paths.length
-
               const key = `navigation.${path}` as TranslateKeys
-              const link = `/${path}` as InternalLink
               const name = t.has(key) ? t(key) : path
 
               return (
                 <Fragment key={path}>
                   <BreadcrumbItem>
-                    {isLast ? (
+                    {isLast && (
                       <BreadcrumbPage>
                         {name}
                       </BreadcrumbPage>
-                    ) : (
-                      <BreadcrumbLink asChild>
-                        <Link to={link} >
-                          {name}
-                        </Link>
-                      </BreadcrumbLink>
                     )}
                   </BreadcrumbItem>
                   {hasNext && <BreadcrumbSeparator />}
