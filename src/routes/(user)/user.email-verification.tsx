@@ -3,10 +3,10 @@ import { toast } from 'sonner'
 import { useTranslations } from 'use-intl'
 import { z } from 'zod'
 
-import { useForm } from '~/components/ui/form'
-import { Input } from '~/components/ui/input'
-import { authClient } from '~/libs/auth-client'
-import { useAuthedQuery } from '~/services/auth.query'
+import { useForm } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { authClient } from '@/libs/auth-client'
+import { useAuthedQuery } from '@/services/auth.query'
 
 export const Route = createFileRoute('/(user)/user/email-verification')({
   component: EmailVerificationRoute,

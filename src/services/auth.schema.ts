@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { tKey } from '~/libs/i18n'
+import { tKey } from '@/libs/i18n'
 
 export const NAME_MIN = 2
 export const NAME_MAX = 10

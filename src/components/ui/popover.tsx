@@ -1,7 +1,7 @@
 import * as PopoverPrimitive from '@radix-ui/react-popover'
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 const Popover = PopoverPrimitive.Root
 

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import type { ComponentPropsWithoutRef, ElementRef, ImgHTMLAttributes } from 'react'
 
-import { cn } from '~/libs/utils'
+import { cn } from '@/libs/utils'
 
 export interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**

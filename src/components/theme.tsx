@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import { z } from 'zod'
 import type { PropsWithChildren } from 'react'
 
-import { createContextFactory } from '~/libs/utils'
-import type { ExcludeUnionStrict } from '~/libs/utils'
+import { createContextFactory } from '@/libs/utils'
+import type { ExcludeUnionStrict } from '@/libs/utils'
 
 const themeSchema = z.enum(['dark', 'light', 'system'])
 

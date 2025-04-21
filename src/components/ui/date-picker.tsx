@@ -5,11 +5,11 @@ import type { ComponentPropsWithRef } from 'react'
 import type { PropsBase, PropsSingle } from 'react-day-picker'
 import type { Except, Simplify } from 'type-fest'
 
-import { Button } from '~/components/ui/button'
-import { Calendar } from '~/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '~/components/ui/popover'
-import { cx } from '~/libs/utils'
-import type { CalendarBaseProps } from '~/components/ui/calendar'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cx } from '@/libs/utils'
+import type { CalendarBaseProps } from '@/components/ui/calendar'
 
 type CalendarProps = Simplify<
   Except<PropsBase & PropsSingle, 'mode'> & CalendarBaseProps & {

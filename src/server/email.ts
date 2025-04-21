@@ -2,8 +2,8 @@ import { render } from '@react-email/components'
 import { createTransport } from 'nodemailer'
 import type { JSX } from 'react'
 
-import { logger } from '~/libs/logger'
-import { tryCatchAsync } from '~/libs/utils'
+import { logger } from '@/libs/logger'
+import { tryCatchAsync } from '@/libs/utils'
 
 const transporter = createTransport({
   host: 'smtp.gmail.com',

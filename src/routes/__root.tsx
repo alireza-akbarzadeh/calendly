@@ -1,7 +1,7 @@
 import fontsourceInter from '@fontsource-variable/inter?url'
 import fontsourceJetBrainsMono from '@fontsource-variable/jetbrains-mono?url'
 import fontsourceNotoSansTC from '@fontsource-variable/noto-sans-tc?url'
-import globalStyle from '~/styles/global.css?url'
+import globalStyle from '@/styles/global.css?url'
 
 import {
   createRootRouteWithContext,
@@ -14,18 +14,18 @@ import { createTranslator, IntlProvider } from 'use-intl'
 import type { ErrorComponentProps } from '@tanstack/react-router'
 import type { PropsWithChildren } from 'react'
 
-import { Footer, Header } from '~/components/sections'
-import { ThemeProvider } from '~/components/theme'
-import { Toaster } from '~/components/ui/sonner'
-import { Typography } from '~/components/ui/typography'
-import { createMetadata } from '~/libs/utils'
-import { authQueryOptions } from '~/services/auth.query'
-import { i18nQueryOptions, useI18nQuery } from '~/services/i18n.query'
+import { Footer, Header } from '@/components/sections'
+import { ThemeProvider } from '@/components/theme'
+import { Toaster } from '@/components/ui/sonner'
+import { Typography } from '@/components/ui/typography'
+import { createMetadata } from '@/libs/utils'
+import { authQueryOptions } from '@/services/auth.query'
+import { i18nQueryOptions, useI18nQuery } from '@/services/i18n.query'
 import {
   preferenceQueryOptions,
   usePreferenceQuery,
-} from '~/services/preference.query'
-import type { RouterContext } from '~/router'
+} from '@/services/preference.query'
+import type { RouterContext } from '@/router'
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   beforeLoad: async ({ context }) => {

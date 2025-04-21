@@ -3,17 +3,17 @@ import { toast } from 'sonner'
 import { useTranslations } from 'use-intl'
 import { z } from 'zod'
 
-import { useForm } from '~/components/ui/form'
-import { Input } from '~/components/ui/input'
-import { authClient } from '~/libs/auth-client'
-import { tKey } from '~/libs/i18n'
-import { useAuthedQuery } from '~/services/auth.query'
+import { useForm } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { authClient } from '@/libs/auth-client'
+import { tKey } from '@/libs/i18n'
+import { useAuthedQuery } from '@/services/auth.query'
 import {
   NAME_MAX,
   nameSchema,
   USERNAME_MAX,
   usernameSchema,
-} from '~/services/auth.schema'
+} from '@/services/auth.schema'
 
 export const Route = createFileRoute('/(user)/user/account-settings')({
   component: AccountSettingsRoute,

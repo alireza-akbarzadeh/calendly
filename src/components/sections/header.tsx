@@ -1,10 +1,11 @@
 import { LuCheck, LuEllipsis, LuLanguages } from 'react-icons/lu'
 import { useTranslations } from 'use-intl'
 
-import { languageOptions, themeOptions } from '~/config/sidebar'
-import { useIsMobile } from '~/hooks/use-is-mobile'
-import { usePreferenceQuery, useUpdatePreferenceMutation } from '~/services/preference.query'
+import { languageOptions, themeOptions } from '@/config/sidebar'
+import { useIsMobile } from '@/hooks/use-is-mobile'
+import { usePreferenceQuery, useUpdatePreferenceMutation } from '@/services/preference.query'
 
+import { AuthModal } from '../auth'
 import { UnAuthenticated } from '../auth/un-authenticated'
 import { Logo } from '../common/logo'
 import { UserMenu } from '../common/user-menu'
@@ -39,11 +40,10 @@ export function Header() {
         </Logo>
       </div>
       <div className='flex items-center gap-2'>
-        <UserMenu />
+        {/* <UserMenu /> */}
         <UnAuthenticated>
-          <Button>Get Started today</Button>
+          <AuthModal />
         </UnAuthenticated>
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant='ghost' size='icon' title={t('sidebar.language')}>

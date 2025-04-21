@@ -2,8 +2,8 @@
 
 import { z } from 'zod'
 
-import { logger } from '~/libs/logger'
-import { handleZodErrors } from '~/libs/zod'
+import { logger } from '@/libs/logger'
+import { handleZodErrors } from '@/libs/zod'
 
 const PUBLIC_ENV_PREFIX = 'VITE_' as const
 

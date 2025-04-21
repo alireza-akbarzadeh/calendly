@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/start'
 import { getEvent } from 'vinxi/http'
 import type { Simplify } from 'type-fest'
 
-import type { Session } from '~/server/auth'
+import type { Session } from '@/server/auth'
 
 export interface Authenticated extends Session {
   isAuthenticated: true

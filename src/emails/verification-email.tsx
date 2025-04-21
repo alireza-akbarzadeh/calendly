@@ -1,6 +1,6 @@
 import { Section } from '@react-email/components'
 
-import { EmailButton, EmailHeading, EmailLayout } from '~/emails/base'
+import { EmailButton, EmailHeading, EmailLayout } from '@/emails/base'
 
 interface VerificationEmailProps {
   url: string

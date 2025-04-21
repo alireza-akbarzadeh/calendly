@@ -3,11 +3,11 @@ import { toast } from 'sonner'
 import { useTranslations } from 'use-intl'
 import { z } from 'zod'
 
-import { useForm } from '~/components/ui/form'
-import { InputPassword } from '~/components/ui/input-password'
-import { authClient } from '~/libs/auth-client'
-import { tKey } from '~/libs/i18n'
-import { passwordSchema } from '~/services/auth.schema'
+import { useForm } from '@/components/ui/form'
+import { InputPassword } from '@/components/ui/input-password'
+import { authClient } from '@/libs/auth-client'
+import { tKey } from '@/libs/i18n'
+import { passwordSchema } from '@/services/auth.schema'
 
 export const Route = createFileRoute('/(user)/user/change-password')({
   component: ChangePasswordRoute,

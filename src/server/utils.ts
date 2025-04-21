@@ -1,7 +1,7 @@
 import { getCookie, setCookie } from 'vinxi/http'
 import type { CookieSerializeOptions } from 'vinxi/http'
 
-import { tryCatchSync } from '~/libs/utils'
+import { tryCatchSync } from '@/libs/utils'
 
 export const COOKIE_OPTIONS_BASE = {
   path: '/',

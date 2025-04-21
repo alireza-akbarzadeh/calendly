@@ -15,9 +15,9 @@ import { TbDeviceDesktopAnalytics } from 'react-icons/tb'
 import type { IconType } from 'react-icons'
 import type { Country } from 'react-phone-number-input'
 
-import type { Theme } from '~/components/theme'
-import type { ValidLink } from '~/components/ui/link'
-import type { Locale, TranslateKeys } from '~/libs/i18n'
+import type { Theme } from '@/components/theme'
+import type { ValidLink } from '@/components/ui/link'
+import type { Locale, TranslateKeys } from '@/libs/i18n'
 
 export interface LanguageOption {
   locale: Locale

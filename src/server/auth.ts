@@ -7,10 +7,10 @@ import { APIError } from 'better-auth/api'
 import { admin, username } from 'better-auth/plugins'
 import type { BetterAuthPlugin } from 'better-auth'
 
-import { VerificationEmail } from '~/emails/verification-email'
-import { prisma } from '~/server/db'
-import { sendEmail } from '~/server/email'
-import { nameSchema, PASSWORD_MAX, PASSWORD_MIN, passwordSchema, usernameSchema } from '~/services/auth.schema'
+import { VerificationEmail } from '@/emails/verification-email'
+import { prisma } from '@/server/db'
+import { sendEmail } from '@/server/email'
+import { nameSchema, PASSWORD_MAX, PASSWORD_MIN, passwordSchema, usernameSchema } from '@/services/auth.schema'
 
 export type Session = typeof auth.$Infer.Session
 

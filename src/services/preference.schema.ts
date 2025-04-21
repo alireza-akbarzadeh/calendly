@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-import { AVAILABLE_LOCALES } from '~/libs/i18n'
+import { AVAILABLE_LOCALES } from '@/libs/i18n'
 
 export const preferenceSchema = z
   .object({

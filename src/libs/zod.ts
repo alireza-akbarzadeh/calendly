@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import type { IsEqual } from 'type-fest'
 
-import { logger } from '~/libs/logger'
+import { logger } from '@/libs/logger'
 
 export type InferZodObjectShape<T extends object> = {
   [Key in keyof T]-?: IsEqual<T[Key], Exclude<T[Key], undefined>> extends false

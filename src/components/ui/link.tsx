@@ -2,7 +2,7 @@ import { Link as RouterLink } from '@tanstack/react-router'
 import type { LinkComponentProps, RegisteredRouter } from '@tanstack/react-router'
 import type { ComponentProps } from 'react'
 
-import type { FileRouteTypes } from '~/route-tree.gen'
+import type { FileRouteTypes } from '@/route-tree.gen'
 
 type InternalLink = '.' | '..' | Exclude<FileRouteTypes['to'], ''>
 type ExternalLink = `http${'s' | ''}://${string}.${string}`

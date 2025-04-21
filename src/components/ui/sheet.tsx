@@ -4,7 +4,7 @@ import { LuX } from 'react-icons/lu'
 import type { VariantProps } from 'class-variance-authority'
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 const Sheet = SheetPrimitive.Root
 

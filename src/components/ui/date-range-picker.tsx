@@ -4,10 +4,10 @@ import { LuCalendar } from 'react-icons/lu'
 import type { ComponentPropsWithRef } from 'react'
 import type { DateRange } from 'react-day-picker'
 
-import { Button } from '~/components/ui/button'
-import { Calendar } from '~/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '~/components/ui/popover'
-import { cx } from '~/libs/utils'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cx } from '@/libs/utils'
 
 function DateRangePicker({ className, ...props }: ComponentPropsWithRef<typeof Button>) {
   const [date, setDate] = useState<DateRange | undefined>()

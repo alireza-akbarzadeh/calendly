@@ -1,4 +1,4 @@
-import type { Messages } from '~/libs/i18n'
+import type { Messages } from '@/libs/i18n'
 
 const zhTW: Messages = {
   common: {

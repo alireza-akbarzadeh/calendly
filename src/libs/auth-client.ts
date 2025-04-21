@@ -1,7 +1,7 @@
 import { adminClient, usernameClient } from 'better-auth/client/plugins'
 import { createAuthClient } from 'better-auth/react'
 
-import { authQueryOptions } from '~/services/auth.query'
+import { authQueryOptions } from '@/services/auth.query'
 
 export const authClient = createAuthClient({
   baseURL: import.meta.env.VITE_APP_BASE_URL,

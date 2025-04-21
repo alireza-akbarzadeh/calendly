@@ -10,11 +10,11 @@ import type { ChangeEvent, ComponentProps, FC, ReactNode } from 'react'
 import type { Except } from 'type-fest'
 import type { z } from 'zod'
 
-import { Button } from '~/components/ui/button'
-import { Label } from '~/components/ui/label'
-import { Slot } from '~/components/ui/slot'
-import { createContextFactory, cx } from '~/libs/utils'
-import type { AsChildProps } from '~/components/ui/slot'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
+import { Slot } from '@/components/ui/slot'
+import { createContextFactory, cx } from '@/libs/utils'
+import type { AsChildProps } from '@/components/ui/slot'
 
 interface FieldLabelProps extends ComponentProps<typeof Label> {}
 interface FieldDetailProps extends ComponentProps<'p'>, AsChildProps {}
@@ -97,7 +97,7 @@ function useForm<
         e.stopPropagation()
         form.handleSubmit()
       }}
-      className={cx('w-full space-y-6 lg:max-w-sm', className)}
+      className={cx('w-full space-y-6', className)}
       {...props}
     />
   )

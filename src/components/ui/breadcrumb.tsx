@@ -1,9 +1,9 @@
 import { LuChevronRight, LuEllipsis } from 'react-icons/lu'
 import type { ComponentProps } from 'react'
 
-import { Slot } from '~/components/ui/slot'
-import { cx } from '~/libs/utils'
-import type { AsChildProps } from '~/components/ui/slot'
+import { Slot } from '@/components/ui/slot'
+import { cx } from '@/libs/utils'
+import type { AsChildProps } from '@/components/ui/slot'
 
 function Breadcrumb(props: ComponentProps<'nav'>) {
   return (

@@ -1,11 +1,11 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router'
 import { toast } from 'sonner'
 
-import { AppHeader } from '~/components/layout/app-header'
-import { AppSidebar } from '~/components/layout/app-sidebar'
-import { SidebarInset, SidebarProvider } from '~/components/ui/sidebar'
-import { logger } from '~/libs/logger'
-import { useAuthQuery } from '~/services/auth.query'
+import { AppHeader } from '@/components/layout/app-header'
+import { AppSidebar } from '@/components/layout/app-sidebar'
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import { logger } from '@/libs/logger'
+import { useAuthQuery } from '@/services/auth.query'
 
 export const Route = createFileRoute('/(admin)/admin')({
   beforeLoad: ({ context, location, preload }) => {

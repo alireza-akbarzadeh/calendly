@@ -6,10 +6,10 @@ import type { ComponentProps } from 'react'
 import type { IconType } from 'react-icons'
 import type { Except } from 'type-fest'
 
-import { PropsProvider } from '~/components/props-provider'
-import { Button } from '~/components/ui/button'
-import { Input } from '~/components/ui/input'
-import { cx } from '~/libs/utils'
+import { PropsProvider } from '@/components/props-provider'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { cx } from '@/libs/utils'
 
 function InputPassword({ className, ...props }: Except<ComponentProps<typeof Input>, 'type'>) {
   const [showPassword, setShowPassword] = useState(false)

@@ -3,7 +3,7 @@ import { createRouter as createTanStackRouter, isRedirect } from '@tanstack/reac
 import { routerWithQueryClient } from '@tanstack/react-router-with-query'
 import { lazy } from 'react'
 
-import { routeTree } from '~/route-tree.gen'
+import { routeTree } from '@/route-tree.gen'
 
 export interface RouterContext {
   queryClient: QueryClient

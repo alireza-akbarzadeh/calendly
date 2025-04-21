@@ -1,8 +1,8 @@
 import { useTranslations } from 'use-intl'
 
-import { Link } from '~/components/ui/link'
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '~/components/ui/sidebar'
-import type { navigation } from '~/config/sidebar'
+import { Link } from '@/components/ui/link'
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
+import type { navigation } from '@/config/sidebar'
 
 interface SidebarNavBuilderProps {
   navigation: typeof navigation

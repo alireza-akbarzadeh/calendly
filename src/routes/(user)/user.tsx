@@ -1,8 +1,8 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router'
 import { toast } from 'sonner'
 
-import { logger } from '~/libs/logger'
-import { useAuthQuery } from '~/services/auth.query'
+import { logger } from '@/libs/logger'
+import { useAuthQuery } from '@/services/auth.query'
 
 export const Route = createFileRoute('/(user)/user')({
   beforeLoad: ({ context, location, preload }) => {

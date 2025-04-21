@@ -1,7 +1,7 @@
 import * as SwitchPrimitives from '@radix-ui/react-switch'
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 function Switch({
   className,

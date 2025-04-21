@@ -1,6 +1,6 @@
 import type { ComponentProps, HTMLInputTypeAttribute } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 // https://css-tricks.com/everything-you-ever-wanted-to-know-about-inputmode/
 const defaultInputModes: Partial<Record<HTMLInputTypeAttribute, ComponentProps<'input'>['inputMode']>> = {

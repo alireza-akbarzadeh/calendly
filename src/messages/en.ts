@@ -6,6 +6,7 @@ const en = {
     'save': 'Save',
     'save-success': 'Saved!',
     'save-error': 'Save error',
+    'get-started-today': 'Get Started Today',
   },
   sidebar: {
     'appearance': 'Appearance',

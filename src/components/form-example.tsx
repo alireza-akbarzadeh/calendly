@@ -1,17 +1,17 @@
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { Checkbox } from "~/components/ui/checkbox";
-import { useForm } from "~/components/ui/form";
-import { Input } from "~/components/ui/input";
-import { InputPassword } from "~/components/ui/input-password";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useForm } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { InputPassword } from "@/components/ui/input-password";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from "@/components/ui/select";
 
 const exampleSchema = z
   .object({

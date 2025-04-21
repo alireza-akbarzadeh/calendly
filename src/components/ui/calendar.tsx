@@ -8,8 +8,8 @@ import type { ComponentProps, Dispatch, SetStateAction } from 'react'
 import type { CustomComponents, DayPickerProps } from 'react-day-picker'
 import type { Except } from 'type-fest'
 
-import { Button, buttonVariants } from '~/components/ui/button'
-import { createContextFactory, cx } from '~/libs/utils'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { createContextFactory, cx } from '@/libs/utils'
 
 interface CalendarBaseProps {
   /**

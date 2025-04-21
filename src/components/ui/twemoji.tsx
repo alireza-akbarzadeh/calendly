@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react'
 import type { Country } from 'react-phone-number-input'
 import type { Except } from 'type-fest'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 const BASE = 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest'
 

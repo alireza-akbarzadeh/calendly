@@ -1,2 +1,5 @@
+export { AuthModal } from './auth-modal'
 export { Authenticated } from './authenticated'
+export { SignInForm } from './signin-form'
+export { SignUpForm } from './signup-form'
 export { UnAuthenticated } from './un-authenticated'

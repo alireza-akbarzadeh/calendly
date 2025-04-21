@@ -1,7 +1,7 @@
 import { Body, Button, Container, Head, Heading, Html, Preview, Tailwind } from '@react-email/components'
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 interface EmailLayoutProps extends ComponentProps<typeof Container> {
   preview?: string

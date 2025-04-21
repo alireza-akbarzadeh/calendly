@@ -1,8 +1,8 @@
 import { queryOptions, useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query'
 import { useRouter } from '@tanstack/react-router'
 
-import { i18nQueryOptions } from '~/services/i18n.query'
-import { getPreference, updatePreference } from '~/services/preference.api'
+import { i18nQueryOptions } from '@/services/i18n.query'
+import { getPreference, updatePreference } from '@/services/preference.api'
 
 export const preferenceQueryOptions = () => queryOptions({
   queryKey: ['preference'],

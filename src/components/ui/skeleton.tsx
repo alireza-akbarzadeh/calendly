@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 const Skeleton = (
   { className, ...props }: ComponentProps<'div'>,

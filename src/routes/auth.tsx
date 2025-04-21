@@ -3,7 +3,7 @@ import { zodValidator } from "@tanstack/zod-adapter";
 import { toast } from "sonner";
 import { z } from "zod";
 
-import { logger } from "~/libs/logger";
+import { logger } from "@/libs/logger";
 
 export const Route = createFileRoute("/auth")({
   validateSearch: zodValidator(

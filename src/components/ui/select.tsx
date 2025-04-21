@@ -2,7 +2,7 @@ import * as SelectPrimitive from '@radix-ui/react-select'
 import { LuCheck, LuChevronDown, LuChevronUp } from 'react-icons/lu'
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 const Select = SelectPrimitive.Root
 

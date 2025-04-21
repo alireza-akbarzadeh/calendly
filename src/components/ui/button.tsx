@@ -2,9 +2,9 @@ import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import type { ComponentProps } from 'react'
 
-import { Slot } from '~/components/ui/slot'
-import { cx } from '~/libs/utils'
-import type { AsChildProps } from '~/components/ui/slot'
+import { Slot } from '@/components/ui/slot'
+import { cx } from '@/libs/utils'
+import type { AsChildProps } from '@/components/ui/slot'
 
 interface ButtonProps extends
   ComponentProps<'button'>,

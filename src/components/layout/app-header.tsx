@@ -2,12 +2,12 @@ import { useLocation } from '@tanstack/react-router'
 import { Fragment } from 'react'
 import { useTranslations } from 'use-intl'
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '~/components/ui/breadcrumb'
-import { Link } from '~/components/ui/link'
-import { Separator } from '~/components/ui/separator'
-import { SidebarTrigger } from '~/components/ui/sidebar'
-import type { InternalLink } from '~/components/ui/link'
-import type { TranslateKeys } from '~/libs/i18n'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
+import { Link } from '@/components/ui/link'
+import { Separator } from '@/components/ui/separator'
+import { SidebarTrigger } from '@/components/ui/sidebar'
+import type { InternalLink } from '@/components/ui/link'
+import type { TranslateKeys } from '@/libs/i18n'
 
 export function AppHeader() {
   const t = useTranslations()

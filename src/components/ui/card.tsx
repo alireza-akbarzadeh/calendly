@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 
-import { cx } from '~/libs/utils'
+import { cx } from '@/libs/utils'
 
 function Card({ className, ...props }: ComponentProps<'div'>) {
   return (

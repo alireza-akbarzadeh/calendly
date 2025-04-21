@@ -1,7 +1,7 @@
 import type { LiteralUnion } from 'type-fest'
 import type { NamespaceKeys, NestedKeyOf, useTranslations } from 'use-intl'
 
-import type enMessages from '~/messages/en'
+import type enMessages from '@/messages/en'
 
 export const AVAILABLE_LOCALES = ['en', 'zh-tw'] as const
 export const DEFAULT_LOCALE = 'en' as const

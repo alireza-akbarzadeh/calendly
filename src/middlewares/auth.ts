@@ -2,8 +2,8 @@ import { createMiddleware } from '@tanstack/start'
 import { status } from 'http-status'
 import { setResponseStatus } from 'vinxi/http'
 
-import { getAuth } from '~/services/auth.api'
-import type { Auth } from '~/services/auth.api'
+import { getAuth } from '@/services/auth.api'
+import type { Auth } from '@/services/auth.api'
 
 export const authMiddleware = createMiddleware()
   .server(async ({ next }) => {
